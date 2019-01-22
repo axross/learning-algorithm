@@ -1,71 +1,70 @@
-import binarySearch, {
-  BinarySearchStep,
-  UnsortedCollectionError
-} from "./binary-search";
+import binarySearch, { BinarySearchStep } from "./binary-search";
 
-describe("binarySearch for [0^2..99^2]", () => {
-  const collection = Array.from({ length: 100 }, (_, i) => i * i);
+describe("binarySearch for [0^2..255^2]", () => {
+  const list = Array.from({ length: 256 }, (_, i) => Math.pow(i, 2));
 
-  test("binarySearch(target: 2601) takes 7 steps", () => {
+  test("binarySearch(target: 16384) takes 8 steps", () => {
     const steps: BinarySearchStep<any>[] = [];
     const onStep = (step: BinarySearchStep<any>) => steps.push(step);
 
     binarySearch({
-      collection,
-      target: 2601,
+      list,
+      target: 16384,
       compare: (a, b) => a - b,
       onStep
     });
 
-    expect(steps.length).toBe(7);
+    expect(steps.length).toBe(8);
   });
 
-  test("binarySearch(target: 2601) finds the index of the target to be 51", () => {
-    expect(
-      binarySearch({ collection, target: 2601, compare: (a, b) => a - b })
-    ).toBe(51);
+  test("binarySearch(target: 16129) takes 1 steps", () => {
+    const steps: BinarySearchStep<any>[] = [];
+    const onStep = (step: BinarySearchStep<any>) => steps.push(step);
+
+    binarySearch({
+      list,
+      target: 16129,
+      compare: (a, b) => a - b,
+      onStep
+    });
+
+    expect(steps.length).toBe(1);
   });
 
-  test("binarySearch(target: 5000) doesn't find it", () => {
+  test("binarySearch(target: 16384) finds the index of the target to be 128", () => {
     expect(
-      binarySearch({ collection, target: 5000, compare: (a, b) => a - b })
+      binarySearch({ list, target: 16384, compare: (a, b) => a - b })
+    ).toBe(128);
+  });
+
+  test("binarySearch(target: 25000) doesn't find it", () => {
+    expect(
+      binarySearch({ list, target: 25000, compare: (a, b) => a - b })
     ).toBe(-1);
   });
 
-  test("binarySearch() throws an UnsortedCollectionError for unsorted collection", () => {
-    expect(() =>
-      binarySearch({
-        collection: [2, 0, 3, 4, 5, 1],
-        target: 1,
-        compare: (a, b) => a - b
-      })
-    ).toThrow(UnsortedCollectionError);
-  });
-
   test("binarySearch() is O(log_2 n) caliculation size", () => {
-    const length = 10000;
-
-    for (let i = 0; i <= length; ++i) {
+    for (let i = 0; i <= list[list.length - 1]; ++i) {
       const steps: BinarySearchStep<any>[] = [];
       const onStep = (step: BinarySearchStep<any>) => steps.push(step);
 
-      binarySearch({ collection, target: i, compare: (a, b) => a - b, onStep });
+      binarySearch({ list, target: i, compare: (a, b) => a - b, onStep });
 
       expect(steps.length).toBeGreaterThanOrEqual(1);
-      expect(steps.length).toBeLessThanOrEqual(Math.log2(length));
+      expect(steps.length).toBeLessThanOrEqual(Math.log2(list.length) + 1);
     }
   });
 });
 
 describe('binarySearch for ["a", "b", "c", ... "x", "y", "z"]', () => {
-  const collection = Array.from({ length: 26 }, (_, i) =>
+  const list = Array.from({ length: 26 }, (_, i) =>
     String.fromCharCode(97 + i)
   );
 
   test('binarySearch(target: "j") finds the index of the target to be 9', () => {
     expect(
       binarySearch({
-        collection,
+        list,
         target: "j",
         compare: (a, b) => a.charCodeAt(0) - b.charCodeAt(0)
       })
@@ -75,7 +74,7 @@ describe('binarySearch for ["a", "b", "c", ... "x", "y", "z"]', () => {
   test('binarySearch(target: "!") doesn\'t find it', () => {
     expect(
       binarySearch({
-        collection,
+        list,
         target: "!",
         compare: (a, b) => a.charCodeAt(0) - b.charCodeAt(0)
       })

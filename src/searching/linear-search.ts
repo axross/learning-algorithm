@@ -1,21 +1,23 @@
 function linearSearch<Element>({
-  collection,
+  list,
   target,
   onStep = () => {}
 }: {
-  collection: Element[];
+  list: Element[];
   target: Element;
   onStep?: (step: LinearSearchStep<Element>) => void;
 }): number {
   let index = 0;
 
-  while (index < collection.length) {
+  while (index < list.length) {
+    const value = list[index];
+
     onStep({
       currentIndex: index,
-      currentValue: collection[index]
+      currentValue: value
     });
 
-    if (collection[index] === target) {
+    if (value === target) {
       return index;
     }
 

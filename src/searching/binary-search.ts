@@ -1,54 +1,41 @@
 function binarySearch<Element>({
-  collection,
+  list,
   target,
   compare,
-  onStep
+  onStep = () => {}
 }: {
-  collection: Element[];
+  list: Element[];
   target: Element;
   compare: (a: Element, b: Element) => number;
   onStep?: (step: BinarySearchStep<Element>) => void;
 }): number {
   let searchRangeStart = 0;
-  let searchRangeEnd = collection.length - 1;
-  let searchRangeCenter: number;
+  let searchRangeEnd = list.length - 1;
+  let searchRangeMiddle: number;
   let foundTargetIndex: number = -1;
 
   while (searchRangeStart <= searchRangeEnd) {
-    searchRangeCenter = Math.round((searchRangeStart + searchRangeEnd) / 2);
+    searchRangeMiddle = Math.floor((searchRangeStart + searchRangeEnd) / 2);
 
-    const pickedElement = collection[Number(searchRangeCenter)];
+    const picked = list[searchRangeMiddle];
 
-    const previousElement = collection[searchRangeCenter - 1];
-    const nextElement = collection[searchRangeCenter + 1];
+    onStep({
+      searchFrom: searchRangeStart,
+      searchTo: searchRangeEnd,
+      pickedIndex: searchRangeMiddle,
+      pickedElement: picked
+    });
 
-    if (previousElement && compare(pickedElement, previousElement) <= 0) {
-      throw new UnsortedCollectionError();
-    }
-
-    if (nextElement && compare(pickedElement, nextElement) >= 0) {
-      throw new UnsortedCollectionError();
-    }
-
-    if (onStep) {
-      onStep({
-        searchFrom: searchRangeStart,
-        searchTo: searchRangeEnd,
-        pickedIndex: searchRangeCenter,
-        pickedElement: pickedElement
-      });
-    }
-
-    if (pickedElement === target) {
-      foundTargetIndex = searchRangeCenter;
+    if (picked === target) {
+      foundTargetIndex = searchRangeMiddle;
 
       break;
     }
 
-    if (compare(pickedElement, target) <= -1) {
-      searchRangeStart = searchRangeCenter + 1;
+    if (compare(picked, target) <= -1) {
+      searchRangeStart = searchRangeMiddle + 1;
     } else {
-      searchRangeEnd = searchRangeCenter - 1;
+      searchRangeEnd = searchRangeMiddle - 1;
     }
   }
 
@@ -60,14 +47,6 @@ export interface BinarySearchStep<Element> {
   readonly searchTo: number;
   readonly pickedIndex: number;
   readonly pickedElement: Element;
-}
-
-export class UnsortedCollectionError extends Error {
-  constructor() {
-    super("collection is not sorted.");
-
-    this.name = "UnsortedCollectionError";
-  }
 }
 
 export default binarySearch;
