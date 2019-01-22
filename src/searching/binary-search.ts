@@ -1,10 +1,12 @@
 function binarySearch<Element>({
   collection,
   target,
-  onStep = () => {}
+  compare,
+  onStep
 }: {
   collection: Element[];
   target: Element;
+  compare: (a: Element, b: Element) => number;
   onStep?: (step: BinarySearchStep<Element>) => void;
 }): number {
   let searchRangeStart = 0;
@@ -17,41 +19,33 @@ function binarySearch<Element>({
 
     const pickedElement = collection[Number(searchRangeCenter)];
 
-    if (
-      collection[searchRangeCenter - 1] !== null &&
-      collection[searchRangeCenter - 1] >= pickedElement
-    ) {
+    const previousElement = collection[searchRangeCenter - 1];
+    const nextElement = collection[searchRangeCenter + 1];
+
+    if (previousElement && compare(pickedElement, previousElement) <= 0) {
       throw new UnsortedCollectionError();
     }
 
-    if (
-      collection[searchRangeCenter + 1] !== null &&
-      collection[searchRangeCenter + 1] <= pickedElement
-    ) {
+    if (nextElement && compare(pickedElement, nextElement) >= 0) {
       throw new UnsortedCollectionError();
     }
 
-    if (pickedElement === target) {
-      foundTargetIndex = searchRangeCenter;
-
+    if (onStep) {
       onStep({
         searchFrom: searchRangeStart,
         searchTo: searchRangeEnd,
         pickedIndex: searchRangeCenter,
         pickedElement: pickedElement
       });
+    }
+
+    if (pickedElement === target) {
+      foundTargetIndex = searchRangeCenter;
 
       break;
     }
 
-    onStep({
-      searchFrom: searchRangeStart,
-      searchTo: searchRangeEnd,
-      pickedIndex: searchRangeCenter,
-      pickedElement: pickedElement
-    });
-
-    if (pickedElement < target) {
+    if (compare(pickedElement, target) <= -1) {
       searchRangeStart = searchRangeCenter + 1;
     } else {
       searchRangeEnd = searchRangeCenter - 1;
