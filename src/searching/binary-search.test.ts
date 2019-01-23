@@ -1,85 +1,81 @@
 import binarySearch, { BinarySearchStep } from "./binary-search";
+import { sampleCharactors } from "../test-utility/sample";
 
-describe("binarySearch for [0^2..255^2]", () => {
-  const list = Array.from({ length: 256 }, (_, i) => Math.pow(i, 2));
+describe("binarySearch", () => {
+  const list = sampleCharactors;
 
-  test("binarySearch(target: 16384) takes 8 steps", () => {
-    const steps: BinarySearchStep<any>[] = [];
-
-    binarySearch({
-      list,
-      target: 16384,
-      compare: (a, b) => a - b,
-      onStep: step => steps.push(step)
-    });
-
-    expect(steps.length).toBe(8);
-  });
-
-  test("binarySearch(target: 16129) takes 1 steps", () => {
-    const steps: BinarySearchStep<any>[] = [];
-
-    binarySearch({
-      list,
-      target: 16129,
-      compare: (a, b) => a - b,
-      onStep: step => steps.push(step)
-    });
-
-    expect(steps.length).toBe(1);
-  });
-
-  test("binarySearch(target: 16384) finds the index of the target to be 128", () => {
+  test('binarySearch(target: "X") finds the index of the target to be 33', () => {
     expect(
-      binarySearch({ list, target: 16384, compare: (a, b) => a - b })
-    ).toBe(128);
+      binarySearch({
+        list: list,
+        target: "X",
+        compare: (a, b) => a.charCodeAt(0) - b.charCodeAt(0)
+      })
+    ).toBe(33);
   });
 
   test("binarySearch(target: 25000) doesn't find it", () => {
     expect(
-      binarySearch({ list, target: 25000, compare: (a, b) => a - b })
+      binarySearch({
+        list: list,
+        target: "🍣",
+        compare: (a, b) => a.charCodeAt(0) - b.charCodeAt(0)
+      })
     ).toBe(-1);
   });
 
-  test("binarySearch() is O(log_2 n) caliculation size", () => {
-    for (let i = 0; i <= list[list.length - 1]; ++i) {
-      const steps: BinarySearchStep<any>[] = [];
+  test('the step snapshot by binarySearch(target: "X") matches with the previous one', () => {
+    const steps: BinarySearchStep<string>[] = [];
+
+    binarySearch({
+      list: list,
+      target: "X",
+      compare: (a, b) => a.charCodeAt(0) - b.charCodeAt(0),
+      onStep: step => steps.push(step)
+    });
+
+    expect(steps).toMatchSnapshot();
+  });
+
+  test("the maximum caliculation size is O(log_2 n + 1)", () => {
+    let maximumStepLength = 0;
+
+    for (let i = 0; i < list.length; ++i) {
+      const steps: BinarySearchStep<string>[] = [];
 
       binarySearch({
-        list,
-        target: i,
-        compare: (a, b) => a - b,
+        list: list,
+        target: list[i],
+        compare: (a, b) => a.charCodeAt(0) - b.charCodeAt(0),
         onStep: step => steps.push(step)
       });
 
-      expect(steps.length).toBeGreaterThanOrEqual(1);
-      expect(steps.length).toBeLessThanOrEqual(Math.log2(list.length) + 1);
+      if (steps.length > maximumStepLength) {
+        maximumStepLength = steps.length;
+      }
     }
-  });
-});
 
-describe('binarySearch for ["a", "b", "c", ... "x", "y", "z"]', () => {
-  const list = Array.from({ length: 26 }, (_, i) =>
-    String.fromCharCode(97 + i)
-  );
-
-  test('binarySearch(target: "j") finds the index of the target to be 9', () => {
-    expect(
-      binarySearch({
-        list,
-        target: "j",
-        compare: (a, b) => a.charCodeAt(0) - b.charCodeAt(0)
-      })
-    ).toBe(9);
+    expect(maximumStepLength).toBe(Math.floor(Math.log2(list.length)) + 1);
   });
 
-  test('binarySearch(target: "!") doesn\'t find it', () => {
-    expect(
+  test("the avarage caliculation size is O(log_2 n)", () => {
+    let totalStepLengths = 0;
+
+    for (let i = 0; i < list.length; ++i) {
+      const steps: BinarySearchStep<string>[] = [];
+
       binarySearch({
-        list,
-        target: "!",
-        compare: (a, b) => a.charCodeAt(0) - b.charCodeAt(0)
-      })
-    ).toBe(-1);
+        list: list,
+        target: list[i],
+        compare: (a, b) => a.charCodeAt(0) - b.charCodeAt(0),
+        onStep: step => steps.push(step)
+      });
+
+      totalStepLengths = totalStepLengths + steps.length;
+    }
+
+    expect(Math.ceil(totalStepLengths / list.length)).toBe(
+      Math.ceil(Math.log2(list.length))
+    );
   });
 });

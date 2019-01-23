@@ -1,56 +1,76 @@
 import linearSearch, { LinearSearchStep } from "./linear-search";
+import { sampleCharactors } from "../test-utility/sample";
 
-describe("linearSearch for [0^2..255^2]", () => {
-  const list = Array.from({ length: 256 }, (_, i) => Math.pow(i, 2));
+describe("linearSearch", () => {
+  const list = sampleCharactors;
 
-  test("linearSearch(target: 16384) takes 129 steps", () => {
-    const steps: LinearSearchStep<any>[] = [];
-
-    linearSearch({ list, target: 16384, onStep: step => steps.push(step) });
-
-    expect(steps.length).toBe(129);
-  });
-
-  test("linearSearch(target: 16384) finds the index of the target to be 128", () => {
-    expect(linearSearch({ list, target: 16384 })).toBe(128);
+  test('linearSearch(target: "X") finds the index of the target to be 33', () => {
+    expect(
+      linearSearch({
+        list: list,
+        target: "X"
+      })
+    ).toBe(33);
   });
 
   test("linearSearch(target: 25000) doesn't find it", () => {
-    expect(linearSearch({ list, target: 25000 })).toBe(-1);
-  });
-
-  test("linearSearch() is O(n) caliculation size", () => {
-    for (let i = 0; i <= list[list.length - 1]; ++i) {
-      const steps: LinearSearchStep<any>[] = [];
-
-      linearSearch({ list, target: i, onStep: step => steps.push(step) });
-
-      expect(steps.length).toBeGreaterThanOrEqual(1);
-      expect(steps.length).toBeLessThanOrEqual(list.length);
-    }
-  });
-});
-
-describe('linearSearch for ["a", "b", "c", ... "x", "y", "z"]', () => {
-  const list = Array.from({ length: 26 }, (_, i) =>
-    String.fromCharCode(97 + i)
-  );
-
-  test('linearSearch(target: "j") finds the index of the target to be 9', () => {
     expect(
       linearSearch({
-        list,
-        target: "j"
-      })
-    ).toBe(9);
-  });
-
-  test('linearSearch(target: "!") doesn\'t find it', () => {
-    expect(
-      linearSearch({
-        list,
-        target: "!"
+        list: list,
+        target: "🍣"
       })
     ).toBe(-1);
+  });
+
+  test('the step snapshot by linearSearch(target: "X") matches with the previous one', () => {
+    const steps: LinearSearchStep<string>[] = [];
+
+    linearSearch({
+      list: list,
+      target: "X",
+      onStep: step => steps.push(step)
+    });
+
+    expect(steps).toMatchSnapshot();
+  });
+
+  test("the maximum caliculation size is O(n)", () => {
+    let maximumStepLength = 0;
+
+    for (let i = 0; i < list.length; ++i) {
+      const steps: LinearSearchStep<string>[] = [];
+
+      linearSearch({
+        list: list,
+        target: list[i],
+        onStep: step => steps.push(step)
+      });
+
+      if (steps.length > maximumStepLength) {
+        maximumStepLength = steps.length;
+      }
+    }
+
+    expect(maximumStepLength).toBe(list.length);
+  });
+
+  test("the avarage caliculation size is O((n + 1) / 2)", () => {
+    let totalStepLengths = 0;
+
+    for (let i = 0; i < list.length; ++i) {
+      const steps: LinearSearchStep<string>[] = [];
+
+      linearSearch({
+        list: list,
+        target: list[i],
+        onStep: step => steps.push(step)
+      });
+
+      totalStepLengths = totalStepLengths + steps.length;
+    }
+
+    expect(Math.ceil(totalStepLengths / list.length)).toBe(
+      Math.ceil((list.length + 1) / 2)
+    );
   });
 });
