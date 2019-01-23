@@ -9,42 +9,29 @@ function bubbleSort<Element>({
   onCompare?: (step: BubbleSortComparison<Element>) => void;
   onSwap?: (step: BubbleSortSwap<Element>) => void;
 }): void {
-  let isSorted = false;
+  let isSwapped = false;
 
-  while (!isSorted) {
-    isSorted = true;
+  do {
+    isSwapped = false;
 
-    for (
-      let aIndex = 0, bIndex = 1;
-      bIndex < collection.length;
-      ++aIndex, ++bIndex
-    ) {
+    for (let a = 0, b = 1; b < collection.length; ++a, ++b) {
       onCompare({
-        a: {
-          index: aIndex,
-          value: collection[aIndex]
-        },
-        b: {
-          index: bIndex,
-          value: collection[bIndex]
-        }
+        a: { index: a, value: collection[a] },
+        b: { index: b, value: collection[b] }
       });
 
-      if (compare(collection[aIndex], collection[bIndex]) > 0) {
+      if (compare(collection[a], collection[b]) > 0) {
         onSwap({
-          a: { index: aIndex, value: collection[aIndex] },
-          b: { index: bIndex, value: collection[bIndex] }
+          a: { index: a, value: collection[a] },
+          b: { index: b, value: collection[b] }
         });
 
-        [collection[aIndex], collection[bIndex]] = [
-          collection[bIndex],
-          collection[aIndex]
-        ];
+        [collection[a], collection[b]] = [collection[b], collection[a]];
 
-        isSorted = false;
+        isSwapped = true;
       }
     }
-  }
+  } while (isSwapped);
 }
 
 export interface BubbleSortComparison<Element> {
