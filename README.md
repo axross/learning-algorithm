@@ -20,20 +20,18 @@
 - Exchanging
   - [x] [Bubble sort](src/sorting/bubble-sort.ts) ([Wikipedia](https://en.wikipedia.org/wiki/Bubble_sort))
   - [ ] Comb sort ([Wikipedia](https://en.wikipedia.org/wiki/Comb_sort))
+  - [ ] Cocktail shaker sort ([Wikipedia](https://en.wikipedia.org/wiki/Cocktail_shaker_sort))
 - Selection
   - [x] [Selection sort](src/sorting/selection-sort.ts) ([Wikipedia](https://en.wikipedia.org/wiki/Selection_sort))
   - [ ] Heap sort ([Wikipedia](https://en.wikipedia.org/wiki/Heapsort))
-  - [ ] Smooth sort
 - Insertion
   - [ ] Insertion sort ([Wikipedia](https://en.wikipedia.org/wiki/Insertion_sort))
   - [ ] Shell sort ([Wikipedia](https://en.wikipedia.org/wiki/Shellsort))
   - [ ] Binary tree sort ([Wikipedia](https://en.wikipedia.org/wiki/Tree_sort))
   - [ ] Library sort ([Wikipedia](https://en.wikipedia.org/wiki/Library_sort))
-- Merging
-  - [ ] Merge sort ([Wikipedia](https://en.wikipedia.org/wiki/Library_sort))
 - Other
+  - [ ] Merge sort ([Wikipedia](https://en.wikipedia.org/wiki/Library_sort))
   - [ ] Quick sort ([Wikipedia](https://en.wikipedia.org/wiki/Quicksort))
-  - [ ] Intro sort ([Wikipedia](https://en.wikipedia.org/wiki/Introsort))
 
 ### Lossless compression
 
