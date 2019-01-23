@@ -8,22 +8,22 @@
 ## Sorting
 
 - Exchanging
-    - [x] [Bubble sort](src/sorting/bubble-sort.ts)
-    - [ ] Comb sort
+  - [x] [Bubble sort](src/sorting/bubble-sort.ts)
+  - [ ] Comb sort
 - Selection
-    - [x] [Selection sort](src/sorting/selection-sort.ts)
-    - [ ] Heap sort
-    - [ ] Smooth sort
+  - [x] [Selection sort](src/sorting/selection-sort.ts)
+  - [ ] Heap sort
+  - [ ] Smooth sort
 - Insertion
-    - [ ] Insertion sort
-    - [ ] Shell sort
-    - [ ] Binary tree sort
-    - [ ] Library sort
+  - [ ] Insertion sort
+  - [ ] Shell sort
+  - [ ] Binary tree sort
+  - [ ] Library sort
 - Merging
-    - [ ] Merge sort
+  - [ ] Merge sort
 - Other
-    - [ ] Quick sort
-    - [ ] Intro sort
+  - [ ] Quick sort
+  - [ ] Intro sort
 
 ## Matching
 
