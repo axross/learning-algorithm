@@ -1,25 +1,25 @@
 import selectionSort, { SelectionSortStep } from "./selection-sort";
 import {
-  sortedAlphabets,
-  sortedTwoLetters,
-  unsortedAlphabets,
-  unsortedTwoLetters
-} from "./alphabets";
-
-test(`selectionSort(collection: ["${unsortedAlphabets[0]}", "${
-  unsortedAlphabets[1]
-}", "${unsortedAlphabets[2]}" ... ${
-  unsortedAlphabets.length
   constantShuffledSampleCharactors,
+  sampleCharactors,
+  shuffledSampleCharactors,
+  sampleTwoCharactors,
+  shuffledSampleTwoCharactors
+} from "../test-utility/sample";
+
+test(`selectionSort(collection: ["${shuffledSampleCharactors[0]}", "${
+  shuffledSampleCharactors[1]
+}", "${shuffledSampleCharactors[2]}" ... ${
+  shuffledSampleCharactors.length
 } items]) sorts the collection to be ordered`, () => {
-  const collection = [...unsortedAlphabets];
+  const collection = [...shuffledSampleCharactors];
 
   selectionSort({
     collection,
     compare: (a, b) => a.charCodeAt(0) - b.charCodeAt(0)
   });
 
-  expect(collection).toEqual(sortedAlphabets);
+  expect(collection).toEqual(sampleCharactors);
 });
 
 test("the steps of selectionSort() matches the previous snapshot", () => {
@@ -35,12 +35,12 @@ test("the steps of selectionSort() matches the previous snapshot", () => {
 });
 
 test("selectionSort() is not stable sort", () => {
-  const collection = [...unsortedTwoLetters];
+  const collection = [...shuffledSampleTwoCharactors];
 
   selectionSort({
     collection,
     compare: (a, b) => a.charCodeAt(0) - b.charCodeAt(0)
   });
 
-  expect(collection).not.toEqual(sortedTwoLetters);
+  expect(collection).not.toEqual(sampleTwoCharactors);
 });
