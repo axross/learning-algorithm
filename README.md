@@ -1,6 +1,6 @@
-# Example implementations of my algorithm exercise
+# Example implementations to learn algorithms
 
-## Works
+## Implementations
 
 ### Data structure
 
