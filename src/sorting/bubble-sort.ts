@@ -12,16 +12,21 @@ function bubbleSort<Element>({
   while (!isSorted) {
     isSorted = true;
 
-    for (let ai = 0, bi = 1; bi < collection.length; ++ai, ++bi) {
-      if (compare(collection[ai], collection[bi]) > 0) {
+    for (
+      let aIndex = 0, bIndex = 1;
+      bIndex < collection.length;
+      ++aIndex, ++bIndex
+    ) {
+      if (compare(collection[aIndex], collection[bIndex]) > 0) {
         onStep({
-          aIndex: ai,
-          bIndex: bi,
-          aValue: collection[ai],
-          bValue: collection[bi]
+          a: { index: aIndex, value: collection[aIndex] },
+          b: { index: bIndex, value: collection[bIndex] }
         });
 
-        [collection[ai], collection[bi]] = [collection[bi], collection[ai]];
+        [collection[aIndex], collection[bIndex]] = [
+          collection[bIndex],
+          collection[aIndex]
+        ];
 
         isSorted = false;
       }
@@ -30,10 +35,14 @@ function bubbleSort<Element>({
 }
 
 export interface BubbleSortStep<Element> {
-  aIndex: number;
-  bIndex: number;
-  aValue: Element;
-  bValue: Element;
+  a: {
+    index: number;
+    value: Element;
+  };
+  b: {
+    index: number;
+    value: Element;
+  };
 }
 
 export default bubbleSort;
