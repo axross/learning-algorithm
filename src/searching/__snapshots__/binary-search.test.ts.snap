@@ -4,62 +4,12 @@ exports[`binarySearch the step snapshot by binarySearch(target: "X") matches wit
 Array [
   Object {
     "middle": Object {
-      "index": 30,
-      "value": "U",
-    },
-    "searchRange": Object {
-      "end": 61,
-      "start": 0,
-    },
-  },
-  Object {
-    "middle": Object {
-      "index": 46,
-      "value": "k",
-    },
-    "searchRange": Object {
-      "end": 61,
-      "start": 31,
-    },
-  },
-  Object {
-    "middle": Object {
-      "index": 38,
-      "value": "c",
-    },
-    "searchRange": Object {
-      "end": 45,
-      "start": 31,
-    },
-  },
-  Object {
-    "middle": Object {
-      "index": 34,
-      "value": "Y",
-    },
-    "searchRange": Object {
-      "end": 37,
-      "start": 31,
-    },
-  },
-  Object {
-    "middle": Object {
-      "index": 32,
-      "value": "W",
-    },
-    "searchRange": Object {
-      "end": 33,
-      "start": 31,
-    },
-  },
-  Object {
-    "middle": Object {
-      "index": 33,
+      "index": 28,
       "value": "X",
     },
     "searchRange": Object {
-      "end": 33,
-      "start": 33,
+      "end": 56,
+      "start": 0,
     },
   },
 ]

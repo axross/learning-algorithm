@@ -4,14 +4,16 @@ import { sampleCharactors } from "../test-utility/sample";
 describe("binarySearch", () => {
   const list = sampleCharactors;
 
-  test('binarySearch(target: "X") finds the index of the target to be 33', () => {
+  test(`binarySearch(target: "X") finds the index of the target to be ${sampleCharactors.indexOf(
+    "X"
+  )}`, () => {
     expect(
       binarySearch({
         list: list,
         target: "X",
         compare: (a, b) => a.charCodeAt(0) - b.charCodeAt(0)
       })
-    ).toBe(33);
+    ).toBe(sampleCharactors.indexOf("X"));
   });
 
   test("binarySearch(target: 25000) doesn't find it", () => {
@@ -74,8 +76,8 @@ describe("binarySearch", () => {
       totalStepLengths = totalStepLengths + steps.length;
     }
 
-    expect(Math.ceil(totalStepLengths / list.length)).toBe(
-      Math.ceil(Math.log2(list.length))
+    expect(Math.floor(totalStepLengths / list.length)).toBe(
+      Math.floor(Math.log2(list.length))
     );
   });
 });

@@ -24,118 +24,98 @@ Array [
   },
   Object {
     "index": 5,
-    "value": "5",
-  },
-  Object {
-    "index": 6,
-    "value": "6",
-  },
-  Object {
-    "index": 7,
-    "value": "7",
-  },
-  Object {
-    "index": 8,
-    "value": "8",
-  },
-  Object {
-    "index": 9,
-    "value": "9",
-  },
-  Object {
-    "index": 10,
     "value": "A",
   },
   Object {
-    "index": 11,
+    "index": 6,
     "value": "B",
   },
   Object {
-    "index": 12,
+    "index": 7,
     "value": "C",
   },
   Object {
-    "index": 13,
+    "index": 8,
     "value": "D",
   },
   Object {
-    "index": 14,
+    "index": 9,
     "value": "E",
   },
   Object {
-    "index": 15,
+    "index": 10,
     "value": "F",
   },
   Object {
-    "index": 16,
+    "index": 11,
     "value": "G",
   },
   Object {
-    "index": 17,
+    "index": 12,
     "value": "H",
   },
   Object {
-    "index": 18,
+    "index": 13,
     "value": "I",
   },
   Object {
-    "index": 19,
+    "index": 14,
     "value": "J",
   },
   Object {
-    "index": 20,
+    "index": 15,
     "value": "K",
   },
   Object {
-    "index": 21,
+    "index": 16,
     "value": "L",
   },
   Object {
-    "index": 22,
+    "index": 17,
     "value": "M",
   },
   Object {
-    "index": 23,
+    "index": 18,
     "value": "N",
   },
   Object {
-    "index": 24,
+    "index": 19,
     "value": "O",
   },
   Object {
-    "index": 25,
+    "index": 20,
     "value": "P",
   },
   Object {
-    "index": 26,
+    "index": 21,
     "value": "Q",
   },
   Object {
-    "index": 27,
+    "index": 22,
     "value": "R",
   },
   Object {
-    "index": 28,
+    "index": 23,
     "value": "S",
   },
   Object {
-    "index": 29,
+    "index": 24,
     "value": "T",
   },
   Object {
-    "index": 30,
+    "index": 25,
     "value": "U",
   },
   Object {
-    "index": 31,
+    "index": 26,
     "value": "V",
   },
   Object {
-    "index": 32,
+    "index": 27,
     "value": "W",
   },
   Object {
-    "index": 33,
+    "index": 28,
     "value": "X",
   },
 ]

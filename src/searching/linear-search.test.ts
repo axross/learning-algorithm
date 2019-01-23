@@ -4,13 +4,15 @@ import { sampleCharactors } from "../test-utility/sample";
 describe("linearSearch", () => {
   const list = sampleCharactors;
 
-  test('linearSearch(target: "X") finds the index of the target to be 33', () => {
+  test(`linearSearch(target: "X") finds the index of the target to be ${sampleCharactors.indexOf(
+    "X"
+  )}`, () => {
     expect(
       linearSearch({
         list: list,
         target: "X"
       })
-    ).toBe(33);
+    ).toBe(sampleCharactors.indexOf("X"));
   });
 
   test("linearSearch(target: 25000) doesn't find it", () => {
@@ -69,8 +71,8 @@ describe("linearSearch", () => {
       totalStepLengths = totalStepLengths + steps.length;
     }
 
-    expect(Math.ceil(totalStepLengths / list.length)).toBe(
-      Math.ceil((list.length + 1) / 2)
+    expect(Math.floor(totalStepLengths / list.length)).toBe(
+      Math.floor((list.length + 1) / 2)
     );
   });
 });
