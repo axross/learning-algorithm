@@ -20,10 +20,14 @@ function binarySearch<Element>({
     const picked = list[searchRangeMiddle];
 
     onStep({
-      searchFrom: searchRangeStart,
-      searchTo: searchRangeEnd,
-      pickedIndex: searchRangeMiddle,
-      pickedElement: picked
+      searchRange: {
+        start: searchRangeStart,
+        end: searchRangeEnd
+      },
+      middle: {
+        index: searchRangeMiddle,
+        value: picked
+      }
     });
 
     if (picked === target) {
@@ -43,10 +47,14 @@ function binarySearch<Element>({
 }
 
 export interface BinarySearchStep<Element> {
-  readonly searchFrom: number;
-  readonly searchTo: number;
-  readonly pickedIndex: number;
-  readonly pickedElement: Element;
+  readonly searchRange: {
+    start: number;
+    end: number;
+  };
+  readonly middle: {
+    index: number;
+    value: Element;
+  };
 }
 
 export default binarySearch;

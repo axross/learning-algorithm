@@ -12,10 +12,7 @@ function linearSearch<Element>({
   while (index < list.length) {
     const value = list[index];
 
-    onStep({
-      currentIndex: index,
-      currentValue: value
-    });
+    onStep({ index, value });
 
     if (value === target) {
       return index;
@@ -28,8 +25,8 @@ function linearSearch<Element>({
 }
 
 export interface LinearSearchStep<Element> {
-  readonly currentIndex: number;
-  readonly currentValue: Element;
+  readonly index: number;
+  readonly value: Element;
 }
 
 export default linearSearch;
