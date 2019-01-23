@@ -1,5 +1,6 @@
 import bubbleSort, { BubbleSortStep } from "./bubble-sort";
 import {
+  constantShuffledSampleCharactors,
   sampleCharactors,
   shuffledSampleCharactors,
   sampleTwoCharactors,
@@ -25,7 +26,7 @@ test("the steps of bubbleSort() matches the previous snapshot", () => {
   const steps: BubbleSortStep<string>[] = [];
 
   bubbleSort({
-    collection: [...shuffledSampleCharactors],
+    collection: [...constantShuffledSampleCharactors],
     compare: (a, b) => a.charCodeAt(0) - b.charCodeAt(0),
     onStep: step => steps.push(step)
   });
