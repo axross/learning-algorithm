@@ -5,9 +5,8 @@ describe("linearSearch for [0^2..255^2]", () => {
 
   test("linearSearch(target: 16384) takes 129 steps", () => {
     const steps: LinearSearchStep<any>[] = [];
-    const onStep = (step: LinearSearchStep<any>) => steps.push(step);
 
-    linearSearch({ list, target: 16384, onStep });
+    linearSearch({ list, target: 16384, onStep: step => steps.push(step) });
 
     expect(steps.length).toBe(129);
   });
@@ -23,9 +22,8 @@ describe("linearSearch for [0^2..255^2]", () => {
   test("linearSearch() is O(n) caliculation size", () => {
     for (let i = 0; i <= list[list.length - 1]; ++i) {
       const steps: LinearSearchStep<any>[] = [];
-      const onStep = (step: LinearSearchStep<any>) => steps.push(step);
 
-      linearSearch({ list, target: i, onStep });
+      linearSearch({ list, target: i, onStep: step => steps.push(step) });
 
       expect(steps.length).toBeGreaterThanOrEqual(1);
       expect(steps.length).toBeLessThanOrEqual(list.length);

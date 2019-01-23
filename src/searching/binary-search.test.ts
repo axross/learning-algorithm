@@ -5,13 +5,12 @@ describe("binarySearch for [0^2..255^2]", () => {
 
   test("binarySearch(target: 16384) takes 8 steps", () => {
     const steps: BinarySearchStep<any>[] = [];
-    const onStep = (step: BinarySearchStep<any>) => steps.push(step);
 
     binarySearch({
       list,
       target: 16384,
       compare: (a, b) => a - b,
-      onStep
+      onStep: step => steps.push(step)
     });
 
     expect(steps.length).toBe(8);
@@ -19,13 +18,12 @@ describe("binarySearch for [0^2..255^2]", () => {
 
   test("binarySearch(target: 16129) takes 1 steps", () => {
     const steps: BinarySearchStep<any>[] = [];
-    const onStep = (step: BinarySearchStep<any>) => steps.push(step);
 
     binarySearch({
       list,
       target: 16129,
       compare: (a, b) => a - b,
-      onStep
+      onStep: step => steps.push(step)
     });
 
     expect(steps.length).toBe(1);
@@ -46,9 +44,13 @@ describe("binarySearch for [0^2..255^2]", () => {
   test("binarySearch() is O(log_2 n) caliculation size", () => {
     for (let i = 0; i <= list[list.length - 1]; ++i) {
       const steps: BinarySearchStep<any>[] = [];
-      const onStep = (step: BinarySearchStep<any>) => steps.push(step);
 
-      binarySearch({ list, target: i, compare: (a, b) => a - b, onStep });
+      binarySearch({
+        list,
+        target: i,
+        compare: (a, b) => a - b,
+        onStep: step => steps.push(step)
+      });
 
       expect(steps.length).toBeGreaterThanOrEqual(1);
       expect(steps.length).toBeLessThanOrEqual(Math.log2(list.length) + 1);
