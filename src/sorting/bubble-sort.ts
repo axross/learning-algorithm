@@ -1,11 +1,13 @@
 function bubbleSort<Element>({
   collection,
   compare,
-  onStep = () => {}
+  onCompare = () => {},
+  onSwap = () => {}
 }: {
   collection: Element[];
   compare: (a: Element, b: Element) => number;
-  onStep?: (step: BubbleSortStep<Element>) => void;
+  onCompare?: (step: BubbleSortComparison<Element>) => void;
+  onSwap?: (step: BubbleSortSwap<Element>) => void;
 }): void {
   let isSorted = false;
 
@@ -17,8 +19,19 @@ function bubbleSort<Element>({
       bIndex < collection.length;
       ++aIndex, ++bIndex
     ) {
+      onCompare({
+        a: {
+          index: aIndex,
+          value: collection[aIndex]
+        },
+        b: {
+          index: bIndex,
+          value: collection[bIndex]
+        }
+      });
+
       if (compare(collection[aIndex], collection[bIndex]) > 0) {
-        onStep({
+        onSwap({
           a: { index: aIndex, value: collection[aIndex] },
           b: { index: bIndex, value: collection[bIndex] }
         });
@@ -34,7 +47,18 @@ function bubbleSort<Element>({
   }
 }
 
-export interface BubbleSortStep<Element> {
+export interface BubbleSortComparison<Element> {
+  a: {
+    index: number;
+    value: Element;
+  };
+  b: {
+    index: number;
+    value: Element;
+  };
+}
+
+export interface BubbleSortSwap<Element> {
   a: {
     index: number;
     value: Element;

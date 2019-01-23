@@ -1,536 +1,370 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`the steps of selectionSort() matches the previous snapshot 1`] = `
-Array [
-  Object {
-    "replaceTarget": Object {
-      "index": 0,
-      "value": "h",
-    },
-    "replaceWith": Object {
-      "index": 41,
-      "value": "0",
-    },
-  },
-  Object {
-    "replaceTarget": Object {
-      "index": 1,
-      "value": "C",
-    },
-    "replaceWith": Object {
-      "index": 5,
-      "value": "1",
-    },
-  },
-  Object {
-    "replaceTarget": Object {
-      "index": 2,
-      "value": "Q",
-    },
-    "replaceWith": Object {
-      "index": 3,
-      "value": "2",
-    },
-  },
-  Object {
-    "replaceTarget": Object {
-      "index": 3,
-      "value": "Q",
-    },
-    "replaceWith": Object {
-      "index": 39,
-      "value": "3",
-    },
-  },
-  Object {
-    "replaceTarget": Object {
-      "index": 4,
-      "value": "q",
-    },
-    "replaceWith": Object {
-      "index": 8,
-      "value": "4",
-    },
-  },
-  Object {
-    "replaceTarget": Object {
-      "index": 5,
-      "value": "C",
-    },
-    "replaceWith": Object {
-      "index": 54,
-      "value": "A",
-    },
-  },
-  Object {
-    "replaceTarget": Object {
-      "index": 6,
-      "value": "E",
-    },
-    "replaceWith": Object {
-      "index": 49,
-      "value": "B",
-    },
-  },
-  Object {
-    "replaceTarget": Object {
-      "index": 7,
-      "value": "M",
-    },
-    "replaceWith": Object {
-      "index": 54,
-      "value": "C",
-    },
-  },
-  Object {
-    "replaceTarget": Object {
-      "index": 8,
-      "value": "q",
-    },
-    "replaceWith": Object {
-      "index": 17,
-      "value": "D",
-    },
-  },
-  Object {
-    "replaceTarget": Object {
-      "index": 9,
-      "value": "j",
-    },
-    "replaceWith": Object {
-      "index": 49,
-      "value": "E",
-    },
-  },
-  Object {
-    "replaceTarget": Object {
-      "index": 10,
-      "value": "W",
-    },
-    "replaceWith": Object {
-      "index": 48,
-      "value": "F",
-    },
-  },
-  Object {
-    "replaceTarget": Object {
-      "index": 11,
-      "value": "N",
-    },
-    "replaceWith": Object {
-      "index": 15,
-      "value": "G",
-    },
-  },
-  Object {
-    "replaceTarget": Object {
-      "index": 12,
-      "value": "I",
-    },
-    "replaceWith": Object {
-      "index": 21,
-      "value": "H",
-    },
-  },
-  Object {
-    "replaceTarget": Object {
-      "index": 13,
-      "value": "L",
-    },
-    "replaceWith": Object {
-      "index": 21,
-      "value": "I",
-    },
-  },
-  Object {
-    "replaceTarget": Object {
-      "index": 14,
-      "value": "Z",
-    },
-    "replaceWith": Object {
-      "index": 26,
-      "value": "J",
-    },
-  },
-  Object {
-    "replaceTarget": Object {
-      "index": 15,
-      "value": "N",
-    },
-    "replaceWith": Object {
-      "index": 16,
-      "value": "K",
-    },
-  },
-  Object {
-    "replaceTarget": Object {
-      "index": 16,
-      "value": "N",
-    },
-    "replaceWith": Object {
-      "index": 21,
-      "value": "L",
-    },
-  },
-  Object {
-    "replaceTarget": Object {
-      "index": 17,
-      "value": "q",
-    },
-    "replaceWith": Object {
-      "index": 54,
-      "value": "M",
-    },
-  },
-  Object {
-    "replaceTarget": Object {
-      "index": 18,
-      "value": "X",
-    },
-    "replaceWith": Object {
-      "index": 21,
-      "value": "N",
-    },
-  },
-  Object {
-    "replaceTarget": Object {
-      "index": 19,
-      "value": "i",
-    },
-    "replaceWith": Object {
-      "index": 51,
-      "value": "O",
-    },
-  },
-  Object {
-    "replaceTarget": Object {
-      "index": 20,
-      "value": "R",
-    },
-    "replaceWith": Object {
-      "index": 36,
-      "value": "P",
-    },
-  },
-  Object {
-    "replaceTarget": Object {
-      "index": 21,
-      "value": "X",
-    },
-    "replaceWith": Object {
-      "index": 39,
-      "value": "Q",
-    },
-  },
-  Object {
-    "replaceTarget": Object {
-      "index": 22,
-      "value": "u",
-    },
-    "replaceWith": Object {
-      "index": 36,
-      "value": "R",
-    },
-  },
-  Object {
-    "replaceTarget": Object {
-      "index": 23,
-      "value": "a",
-    },
-    "replaceWith": Object {
-      "index": 32,
-      "value": "S",
-    },
-  },
-  Object {
-    "replaceTarget": Object {
-      "index": 24,
-      "value": "o",
-    },
-    "replaceWith": Object {
-      "index": 40,
-      "value": "T",
-    },
-  },
-  Object {
-    "replaceTarget": Object {
-      "index": 25,
-      "value": "b",
-    },
-    "replaceWith": Object {
-      "index": 53,
-      "value": "U",
-    },
-  },
-  Object {
-    "replaceTarget": Object {
-      "index": 26,
-      "value": "Z",
-    },
-    "replaceWith": Object {
-      "index": 35,
-      "value": "V",
-    },
-  },
-  Object {
-    "replaceTarget": Object {
-      "index": 27,
-      "value": "t",
-    },
-    "replaceWith": Object {
-      "index": 48,
-      "value": "W",
-    },
-  },
-  Object {
-    "replaceTarget": Object {
-      "index": 28,
-      "value": "x",
-    },
-    "replaceWith": Object {
-      "index": 39,
-      "value": "X",
-    },
-  },
-  Object {
-    "replaceTarget": Object {
-      "index": 29,
-      "value": "l",
-    },
-    "replaceWith": Object {
-      "index": 50,
-      "value": "Y",
-    },
-  },
-  Object {
-    "replaceTarget": Object {
-      "index": 30,
-      "value": "n",
-    },
-    "replaceWith": Object {
-      "index": 35,
-      "value": "Z",
-    },
-  },
-  Object {
-    "replaceTarget": Object {
-      "index": 31,
-      "value": "g",
-    },
-    "replaceWith": Object {
-      "index": 32,
-      "value": "a",
-    },
-  },
-  Object {
-    "replaceTarget": Object {
-      "index": 32,
-      "value": "g",
-    },
-    "replaceWith": Object {
-      "index": 53,
-      "value": "b",
-    },
-  },
-  Object {
-    "replaceTarget": Object {
-      "index": 34,
-      "value": "y",
-    },
-    "replaceWith": Object {
-      "index": 45,
-      "value": "d",
-    },
-  },
-  Object {
-    "replaceTarget": Object {
-      "index": 35,
-      "value": "n",
-    },
-    "replaceWith": Object {
-      "index": 43,
-      "value": "e",
-    },
-  },
-  Object {
-    "replaceTarget": Object {
-      "index": 36,
-      "value": "u",
-    },
-    "replaceWith": Object {
-      "index": 46,
-      "value": "f",
-    },
-  },
-  Object {
-    "replaceTarget": Object {
-      "index": 37,
-      "value": "v",
-    },
-    "replaceWith": Object {
-      "index": 53,
-      "value": "g",
-    },
-  },
-  Object {
-    "replaceTarget": Object {
-      "index": 38,
-      "value": "p",
-    },
-    "replaceWith": Object {
-      "index": 41,
-      "value": "h",
-    },
-  },
-  Object {
-    "replaceTarget": Object {
-      "index": 39,
-      "value": "x",
-    },
-    "replaceWith": Object {
-      "index": 51,
-      "value": "i",
-    },
-  },
-  Object {
-    "replaceTarget": Object {
-      "index": 40,
-      "value": "o",
-    },
-    "replaceWith": Object {
-      "index": 49,
-      "value": "j",
-    },
-  },
-  Object {
-    "replaceTarget": Object {
-      "index": 41,
-      "value": "p",
-    },
-    "replaceWith": Object {
-      "index": 55,
-      "value": "k",
-    },
-  },
-  Object {
-    "replaceTarget": Object {
-      "index": 42,
-      "value": "w",
-    },
-    "replaceWith": Object {
-      "index": 50,
-      "value": "l",
-    },
-  },
-  Object {
-    "replaceTarget": Object {
-      "index": 43,
-      "value": "n",
-    },
-    "replaceWith": Object {
-      "index": 56,
-      "value": "m",
-    },
-  },
-  Object {
-    "replaceTarget": Object {
-      "index": 44,
-      "value": "z",
-    },
-    "replaceWith": Object {
-      "index": 56,
-      "value": "n",
-    },
-  },
-  Object {
-    "replaceTarget": Object {
-      "index": 45,
-      "value": "y",
-    },
-    "replaceWith": Object {
-      "index": 49,
-      "value": "o",
-    },
-  },
-  Object {
-    "replaceTarget": Object {
-      "index": 46,
-      "value": "u",
-    },
-    "replaceWith": Object {
-      "index": 55,
-      "value": "p",
-    },
-  },
-  Object {
-    "replaceTarget": Object {
-      "index": 47,
-      "value": "s",
-    },
-    "replaceWith": Object {
-      "index": 54,
-      "value": "q",
-    },
-  },
-  Object {
-    "replaceTarget": Object {
-      "index": 48,
-      "value": "t",
-    },
-    "replaceWith": Object {
-      "index": 52,
-      "value": "r",
-    },
-  },
-  Object {
-    "replaceTarget": Object {
-      "index": 49,
-      "value": "y",
-    },
-    "replaceWith": Object {
-      "index": 54,
-      "value": "s",
-    },
-  },
-  Object {
-    "replaceTarget": Object {
-      "index": 50,
-      "value": "w",
-    },
-    "replaceWith": Object {
-      "index": 52,
-      "value": "t",
-    },
-  },
-  Object {
-    "replaceTarget": Object {
-      "index": 51,
-      "value": "x",
-    },
-    "replaceWith": Object {
-      "index": 55,
-      "value": "u",
-    },
-  },
-  Object {
-    "replaceTarget": Object {
-      "index": 52,
-      "value": "w",
-    },
-    "replaceWith": Object {
-      "index": 53,
-      "value": "v",
-    },
-  },
-  Object {
-    "replaceTarget": Object {
-      "index": 54,
-      "value": "y",
-    },
-    "replaceWith": Object {
-      "index": 55,
-      "value": "x",
-    },
-  },
-]
+Object {
+  "comparisons": Array [
+    Object {
+      "a": Object {
+        "index": 0,
+        "value": "g",
+      },
+      "b": Object {
+        "index": 0,
+        "value": "f",
+      },
+    },
+    Object {
+      "a": Object {
+        "index": 0,
+        "value": "a",
+      },
+      "b": Object {
+        "index": 0,
+        "value": "f",
+      },
+    },
+    Object {
+      "a": Object {
+        "index": 0,
+        "value": "b",
+      },
+      "b": Object {
+        "index": 2,
+        "value": "a",
+      },
+    },
+    Object {
+      "a": Object {
+        "index": 0,
+        "value": "c",
+      },
+      "b": Object {
+        "index": 2,
+        "value": "a",
+      },
+    },
+    Object {
+      "a": Object {
+        "index": 0,
+        "value": "d",
+      },
+      "b": Object {
+        "index": 2,
+        "value": "a",
+      },
+    },
+    Object {
+      "a": Object {
+        "index": 0,
+        "value": "e",
+      },
+      "b": Object {
+        "index": 2,
+        "value": "a",
+      },
+    },
+    Object {
+      "a": Object {
+        "index": 0,
+        "value": "h",
+      },
+      "b": Object {
+        "index": 2,
+        "value": "a",
+      },
+    },
+    Object {
+      "a": Object {
+        "index": 1,
+        "value": "f",
+      },
+      "b": Object {
+        "index": 1,
+        "value": "g",
+      },
+    },
+    Object {
+      "a": Object {
+        "index": 1,
+        "value": "b",
+      },
+      "b": Object {
+        "index": 2,
+        "value": "f",
+      },
+    },
+    Object {
+      "a": Object {
+        "index": 1,
+        "value": "c",
+      },
+      "b": Object {
+        "index": 3,
+        "value": "b",
+      },
+    },
+    Object {
+      "a": Object {
+        "index": 1,
+        "value": "d",
+      },
+      "b": Object {
+        "index": 3,
+        "value": "b",
+      },
+    },
+    Object {
+      "a": Object {
+        "index": 1,
+        "value": "e",
+      },
+      "b": Object {
+        "index": 3,
+        "value": "b",
+      },
+    },
+    Object {
+      "a": Object {
+        "index": 1,
+        "value": "h",
+      },
+      "b": Object {
+        "index": 3,
+        "value": "b",
+      },
+    },
+    Object {
+      "a": Object {
+        "index": 2,
+        "value": "g",
+      },
+      "b": Object {
+        "index": 2,
+        "value": "f",
+      },
+    },
+    Object {
+      "a": Object {
+        "index": 2,
+        "value": "c",
+      },
+      "b": Object {
+        "index": 2,
+        "value": "f",
+      },
+    },
+    Object {
+      "a": Object {
+        "index": 2,
+        "value": "d",
+      },
+      "b": Object {
+        "index": 4,
+        "value": "c",
+      },
+    },
+    Object {
+      "a": Object {
+        "index": 2,
+        "value": "e",
+      },
+      "b": Object {
+        "index": 4,
+        "value": "c",
+      },
+    },
+    Object {
+      "a": Object {
+        "index": 2,
+        "value": "h",
+      },
+      "b": Object {
+        "index": 4,
+        "value": "c",
+      },
+    },
+    Object {
+      "a": Object {
+        "index": 3,
+        "value": "f",
+      },
+      "b": Object {
+        "index": 3,
+        "value": "g",
+      },
+    },
+    Object {
+      "a": Object {
+        "index": 3,
+        "value": "d",
+      },
+      "b": Object {
+        "index": 4,
+        "value": "f",
+      },
+    },
+    Object {
+      "a": Object {
+        "index": 3,
+        "value": "e",
+      },
+      "b": Object {
+        "index": 5,
+        "value": "d",
+      },
+    },
+    Object {
+      "a": Object {
+        "index": 3,
+        "value": "h",
+      },
+      "b": Object {
+        "index": 5,
+        "value": "d",
+      },
+    },
+    Object {
+      "a": Object {
+        "index": 4,
+        "value": "g",
+      },
+      "b": Object {
+        "index": 4,
+        "value": "f",
+      },
+    },
+    Object {
+      "a": Object {
+        "index": 4,
+        "value": "e",
+      },
+      "b": Object {
+        "index": 4,
+        "value": "f",
+      },
+    },
+    Object {
+      "a": Object {
+        "index": 4,
+        "value": "h",
+      },
+      "b": Object {
+        "index": 6,
+        "value": "e",
+      },
+    },
+    Object {
+      "a": Object {
+        "index": 5,
+        "value": "f",
+      },
+      "b": Object {
+        "index": 5,
+        "value": "g",
+      },
+    },
+    Object {
+      "a": Object {
+        "index": 5,
+        "value": "h",
+      },
+      "b": Object {
+        "index": 6,
+        "value": "f",
+      },
+    },
+    Object {
+      "a": Object {
+        "index": 6,
+        "value": "h",
+      },
+      "b": Object {
+        "index": 6,
+        "value": "g",
+      },
+    },
+  ],
+  "from": Array [
+    "f",
+    "g",
+    "a",
+    "b",
+    "c",
+    "d",
+    "e",
+    "h",
+  ],
+  "swaps": Array [
+    Object {
+      "a": Object {
+        "index": 0,
+        "value": "f",
+      },
+      "b": Object {
+        "index": 2,
+        "value": "a",
+      },
+    },
+    Object {
+      "a": Object {
+        "index": 1,
+        "value": "g",
+      },
+      "b": Object {
+        "index": 3,
+        "value": "b",
+      },
+    },
+    Object {
+      "a": Object {
+        "index": 2,
+        "value": "f",
+      },
+      "b": Object {
+        "index": 4,
+        "value": "c",
+      },
+    },
+    Object {
+      "a": Object {
+        "index": 3,
+        "value": "g",
+      },
+      "b": Object {
+        "index": 5,
+        "value": "d",
+      },
+    },
+    Object {
+      "a": Object {
+        "index": 4,
+        "value": "f",
+      },
+      "b": Object {
+        "index": 6,
+        "value": "e",
+      },
+    },
+    Object {
+      "a": Object {
+        "index": 5,
+        "value": "g",
+      },
+      "b": Object {
+        "index": 6,
+        "value": "f",
+      },
+    },
+  ],
+  "to": Array [
+    "a",
+    "b",
+    "c",
+    "d",
+    "e",
+    "f",
+    "g",
+    "h",
+  ],
+}
 `;

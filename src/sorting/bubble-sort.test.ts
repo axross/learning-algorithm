@@ -1,46 +1,40 @@
-import bubbleSort, { BubbleSortStep } from "./bubble-sort";
-import {
-  constantShuffledSampleCharactors,
-  sampleCharactors,
-  shuffledSampleCharactors,
-  sampleTwoCharactors,
-  shuffledSampleTwoCharactors
-} from "../test-utility/sample";
+import bubbleSort, {
+  BubbleSortComparison,
+  BubbleSortSwap
+} from "./bubble-sort";
+import { charactors, randomSample, staticSample } from "./sample";
 
-test(`bubbleSort(collection: ["${shuffledSampleCharactors[0]}", "${
-  shuffledSampleCharactors[1]
-}", "${shuffledSampleCharactors[2]}" ... ${
-  shuffledSampleCharactors.length
+test(`bubbleSort(collection: ["${randomSample[0]}", "${randomSample[1]}", "${
+  randomSample[2]
+}" ... ${
+  randomSample.length
 } items]) sorts the collection to be ordered`, () => {
-  const collection = [...shuffledSampleCharactors];
+  const collection = [...randomSample];
 
   bubbleSort({
     collection,
     compare: (a, b) => a.charCodeAt(0) - b.charCodeAt(0)
   });
 
-  expect(collection).toEqual(sampleCharactors);
+  expect(collection).toEqual(charactors);
 });
 
 test("the steps of bubbleSort() matches the previous snapshot", () => {
-  const steps: BubbleSortStep<string>[] = [];
-
-  bubbleSort({
-    collection: [...constantShuffledSampleCharactors],
-    compare: (a, b) => a.charCodeAt(0) - b.charCodeAt(0),
-    onStep: step => steps.push(step)
-  });
-
-  expect(steps).toMatchSnapshot();
-});
-
-test("bubbleSort() is stable sort", () => {
-  const collection = [...shuffledSampleTwoCharactors];
+  const comparisons: BubbleSortComparison<string>[] = [];
+  const swaps: BubbleSortSwap<string>[] = [];
+  const collection = [...staticSample];
 
   bubbleSort({
     collection,
-    compare: (a, b) => a.charCodeAt(0) - b.charCodeAt(0)
+    compare: (a, b) => a.charCodeAt(0) - b.charCodeAt(0),
+    onCompare: comparison => comparisons.push(comparison),
+    onSwap: swap => swaps.push(swap)
   });
 
-  expect(collection).toEqual(sampleTwoCharactors);
+  expect({
+    from: staticSample,
+    to: collection,
+    comparisons,
+    swaps
+  }).toMatchSnapshot();
 });

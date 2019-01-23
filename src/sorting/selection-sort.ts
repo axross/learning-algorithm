@@ -1,16 +1,29 @@
 function selectionSort<Element>({
   collection,
   compare,
-  onStep = () => {}
+  onCompare = () => {},
+  onSwap = () => {}
 }: {
   collection: Element[];
   compare: (a: Element, b: Element) => number;
-  onStep?: (step: SelectionSortStep<Element>) => void;
+  onCompare?: (step: SelectionSortSwap<Element>) => void;
+  onSwap?: (step: SelectionSortSwap<Element>) => void;
 }): void {
   for (let i = 0; i < collection.length - 1; ++i) {
     let minimumValueIndex = i;
 
     for (let j = i + 1; j < collection.length; ++j) {
+      onCompare({
+        a: {
+          index: i,
+          value: collection[j]
+        },
+        b: {
+          index: minimumValueIndex,
+          value: collection[minimumValueIndex]
+        }
+      });
+
       if (compare(collection[j], collection[minimumValueIndex]) < 0) {
         minimumValueIndex = j;
       }
@@ -20,12 +33,12 @@ function selectionSort<Element>({
       continue;
     }
 
-    onStep({
-      replaceTarget: {
+    onSwap({
+      a: {
         index: i,
         value: collection[i]
       },
-      replaceWith: {
+      b: {
         index: minimumValueIndex,
         value: collection[minimumValueIndex]
       }
@@ -38,12 +51,23 @@ function selectionSort<Element>({
   }
 }
 
-export interface SelectionSortStep<Element> {
-  replaceTarget: {
+export interface SelectionSortComparison<Element> {
+  a: {
     index: number;
     value: Element;
   };
-  replaceWith: {
+  b: {
+    index: number;
+    value: Element;
+  };
+}
+
+export interface SelectionSortSwap<Element> {
+  a: {
+    index: number;
+    value: Element;
+  };
+  b: {
     index: number;
     value: Element;
   };

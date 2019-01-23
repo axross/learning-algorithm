@@ -1,16 +1,53 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`binarySearch the step snapshot by binarySearch(target: "X") matches with the previous one 1`] = `
-Array [
-  Object {
-    "middle": Object {
-      "index": 28,
-      "value": "X",
+exports[`binarySearch the step snapshot by binarySearch(target: "x") matches with the previous one 1`] = `
+Object {
+  "comparisons": Array [
+    Object {
+      "index": 12,
+      "value": "m",
     },
-    "searchRange": Object {
-      "end": 56,
-      "start": 0,
+    Object {
+      "index": 19,
+      "value": "t",
     },
-  },
-]
+    Object {
+      "index": 22,
+      "value": "w",
+    },
+    Object {
+      "index": 24,
+      "value": "y",
+    },
+  ],
+  "from": Array [
+    "a",
+    "b",
+    "c",
+    "d",
+    "e",
+    "f",
+    "g",
+    "h",
+    "i",
+    "j",
+    "k",
+    "l",
+    "m",
+    "n",
+    "o",
+    "p",
+    "q",
+    "r",
+    "s",
+    "t",
+    "u",
+    "v",
+    "w",
+    "x",
+    "y",
+    "z",
+  ],
+  "target": "x",
+}
 `;

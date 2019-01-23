@@ -1,122 +1,105 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`linearSearch the step snapshot by linearSearch(target: "X") matches with the previous one 1`] = `
-Array [
-  Object {
-    "index": 0,
-    "value": "0",
-  },
-  Object {
-    "index": 1,
-    "value": "1",
-  },
-  Object {
-    "index": 2,
-    "value": "2",
-  },
-  Object {
-    "index": 3,
-    "value": "3",
-  },
-  Object {
-    "index": 4,
-    "value": "4",
-  },
-  Object {
-    "index": 5,
-    "value": "A",
-  },
-  Object {
-    "index": 6,
-    "value": "B",
-  },
-  Object {
-    "index": 7,
-    "value": "C",
-  },
-  Object {
-    "index": 8,
-    "value": "D",
-  },
-  Object {
-    "index": 9,
-    "value": "E",
-  },
-  Object {
-    "index": 10,
-    "value": "F",
-  },
-  Object {
-    "index": 11,
-    "value": "G",
-  },
-  Object {
-    "index": 12,
-    "value": "H",
-  },
-  Object {
-    "index": 13,
-    "value": "I",
-  },
-  Object {
-    "index": 14,
-    "value": "J",
-  },
-  Object {
-    "index": 15,
-    "value": "K",
-  },
-  Object {
-    "index": 16,
-    "value": "L",
-  },
-  Object {
-    "index": 17,
-    "value": "M",
-  },
-  Object {
-    "index": 18,
-    "value": "N",
-  },
-  Object {
-    "index": 19,
-    "value": "O",
-  },
-  Object {
-    "index": 20,
-    "value": "P",
-  },
-  Object {
-    "index": 21,
-    "value": "Q",
-  },
-  Object {
-    "index": 22,
-    "value": "R",
-  },
-  Object {
-    "index": 23,
-    "value": "S",
-  },
-  Object {
-    "index": 24,
-    "value": "T",
-  },
-  Object {
-    "index": 25,
-    "value": "U",
-  },
-  Object {
-    "index": 26,
-    "value": "V",
-  },
-  Object {
-    "index": 27,
-    "value": "W",
-  },
-  Object {
-    "index": 28,
-    "value": "X",
-  },
-]
+exports[`linearSearch the step snapshot by linearSearch(target: "x") matches with the previous one 1`] = `
+Object {
+  "comparisons": Array [
+    Object {
+      "index": 0,
+      "value": "c",
+    },
+    Object {
+      "index": 1,
+      "value": "n",
+    },
+    Object {
+      "index": 2,
+      "value": "r",
+    },
+    Object {
+      "index": 3,
+      "value": "j",
+    },
+    Object {
+      "index": 4,
+      "value": "m",
+    },
+    Object {
+      "index": 5,
+      "value": "s",
+    },
+    Object {
+      "index": 6,
+      "value": "b",
+    },
+    Object {
+      "index": 7,
+      "value": "u",
+    },
+    Object {
+      "index": 8,
+      "value": "w",
+    },
+    Object {
+      "index": 9,
+      "value": "y",
+    },
+    Object {
+      "index": 10,
+      "value": "h",
+    },
+    Object {
+      "index": 11,
+      "value": "t",
+    },
+    Object {
+      "index": 12,
+      "value": "v",
+    },
+    Object {
+      "index": 13,
+      "value": "f",
+    },
+    Object {
+      "index": 14,
+      "value": "z",
+    },
+    Object {
+      "index": 15,
+      "value": "g",
+    },
+    Object {
+      "index": 16,
+      "value": "x",
+    },
+  ],
+  "from": Array [
+    "c",
+    "n",
+    "r",
+    "j",
+    "m",
+    "s",
+    "b",
+    "u",
+    "w",
+    "y",
+    "h",
+    "t",
+    "v",
+    "f",
+    "z",
+    "g",
+    "x",
+    "o",
+    "k",
+    "q",
+    "d",
+    "e",
+    "p",
+    "l",
+    "a",
+    "i",
+  ],
+  "target": "x",
+}
 `;

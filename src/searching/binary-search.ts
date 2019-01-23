@@ -2,12 +2,12 @@ function binarySearch<Element>({
   list,
   target,
   compare,
-  onStep = () => {}
+  onCompare = () => {}
 }: {
   list: Element[];
   target: Element;
   compare: (a: Element, b: Element) => number;
-  onStep?: (step: BinarySearchStep<Element>) => void;
+  onCompare?: (step: BinarySearchComparison<Element>) => void;
 }): number {
   let searchRangeStart = 0;
   let searchRangeEnd = list.length - 1;
@@ -19,22 +19,16 @@ function binarySearch<Element>({
 
     const picked = list[searchRangeMiddle];
 
-    onStep({
-      searchRange: {
-        start: searchRangeStart,
-        end: searchRangeEnd
-      },
-      middle: {
-        index: searchRangeMiddle,
-        value: picked
-      }
-    });
-
     if (picked === target) {
       foundTargetIndex = searchRangeMiddle;
 
       break;
     }
+
+    onCompare({
+      index: searchRangeMiddle,
+      value: picked
+    });
 
     if (compare(picked, target) <= -1) {
       searchRangeStart = searchRangeMiddle + 1;
@@ -46,15 +40,9 @@ function binarySearch<Element>({
   return foundTargetIndex;
 }
 
-export interface BinarySearchStep<Element> {
-  readonly searchRange: {
-    start: number;
-    end: number;
-  };
-  readonly middle: {
-    index: number;
-    value: Element;
-  };
+export interface BinarySearchComparison<Element> {
+  index: number;
+  value: Element;
 }
 
 export default binarySearch;

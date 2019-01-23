@@ -1,46 +1,40 @@
-import selectionSort, { SelectionSortStep } from "./selection-sort";
-import {
-  constantShuffledSampleCharactors,
-  sampleCharactors,
-  shuffledSampleCharactors,
-  sampleTwoCharactors,
-  shuffledSampleTwoCharactors
-} from "../test-utility/sample";
+import selectionSort, {
+  SelectionSortComparison,
+  SelectionSortSwap
+} from "./selection-sort";
+import { charactors, randomSample, staticSample } from "./sample";
 
-test(`selectionSort(collection: ["${shuffledSampleCharactors[0]}", "${
-  shuffledSampleCharactors[1]
-}", "${shuffledSampleCharactors[2]}" ... ${
-  shuffledSampleCharactors.length
+test(`selectionSort(collection: ["${randomSample[0]}", "${randomSample[1]}", "${
+  randomSample[2]
+}" ... ${
+  randomSample.length
 } items]) sorts the collection to be ordered`, () => {
-  const collection = [...shuffledSampleCharactors];
+  const collection = [...randomSample];
 
   selectionSort({
     collection,
     compare: (a, b) => a.charCodeAt(0) - b.charCodeAt(0)
   });
 
-  expect(collection).toEqual(sampleCharactors);
+  expect(collection).toEqual(charactors);
 });
 
 test("the steps of selectionSort() matches the previous snapshot", () => {
-  const steps: SelectionSortStep<any>[] = [];
-
-  selectionSort({
-    collection: [...constantShuffledSampleCharactors],
-    compare: (a, b) => a.charCodeAt(0) - b.charCodeAt(0),
-    onStep: step => steps.push(step)
-  });
-
-  expect(steps).toMatchSnapshot();
-});
-
-test("selectionSort() is not stable sort", () => {
-  const collection = [...shuffledSampleTwoCharactors];
+  const comparisons: SelectionSortComparison<string>[] = [];
+  const swaps: SelectionSortSwap<string>[] = [];
+  const collection = [...staticSample];
 
   selectionSort({
     collection,
-    compare: (a, b) => a.charCodeAt(0) - b.charCodeAt(0)
+    compare: (a, b) => a.charCodeAt(0) - b.charCodeAt(0),
+    onCompare: comparison => comparisons.push(comparison),
+    onSwap: swap => swaps.push(swap)
   });
 
-  expect(collection).not.toEqual(sampleTwoCharactors);
+  expect({
+    from: staticSample,
+    to: collection,
+    comparisons,
+    swaps
+  }).toMatchSnapshot();
 });
