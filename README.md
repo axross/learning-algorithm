@@ -20,12 +20,12 @@
 - Exchanging
   - [x] [Bubble sort](src/sorting/bubble-sort.ts) ([Wikipedia](https://en.wikipedia.org/wiki/Bubble_sort))
   - [ ] Comb sort ([Wikipedia](https://en.wikipedia.org/wiki/Comb_sort))
-  - [x] Cocktail shaker sort ([Wikipedia](https://en.wikipedia.org/wiki/Cocktail_shaker_sort))
+  - [x] [Cocktail shaker sort](src/sorting/cocktail-shaker-sort.ts) ([Wikipedia](https://en.wikipedia.org/wiki/Cocktail_shaker_sort))
 - Selection
   - [x] [Selection sort](src/sorting/selection-sort.ts) ([Wikipedia](https://en.wikipedia.org/wiki/Selection_sort))
   - [ ] Heap sort ([Wikipedia](https://en.wikipedia.org/wiki/Heapsort))
 - Insertion
-  - [x] Insertion sort ([Wikipedia](https://en.wikipedia.org/wiki/Insertion_sort))
+  - [x] [Insertion sort](src/sorting/insertion-sort.ts) ([Wikipedia](https://en.wikipedia.org/wiki/Insertion_sort))
   - [ ] Shell sort ([Wikipedia](https://en.wikipedia.org/wiki/Shellsort))
   - [ ] Binary tree sort ([Wikipedia](https://en.wikipedia.org/wiki/Tree_sort))
   - [ ] Library sort ([Wikipedia](https://en.wikipedia.org/wiki/Library_sort))
