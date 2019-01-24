@@ -25,7 +25,7 @@
   - [x] [Selection sort](src/sorting/selection-sort.ts) ([Wikipedia](https://en.wikipedia.org/wiki/Selection_sort))
   - [ ] Heap sort ([Wikipedia](https://en.wikipedia.org/wiki/Heapsort))
 - Insertion
-  - [ ] Insertion sort ([Wikipedia](https://en.wikipedia.org/wiki/Insertion_sort))
+  - [x] Insertion sort ([Wikipedia](https://en.wikipedia.org/wiki/Insertion_sort))
   - [ ] Shell sort ([Wikipedia](https://en.wikipedia.org/wiki/Shellsort))
   - [ ] Binary tree sort ([Wikipedia](https://en.wikipedia.org/wiki/Tree_sort))
   - [ ] Library sort ([Wikipedia](https://en.wikipedia.org/wiki/Library_sort))
