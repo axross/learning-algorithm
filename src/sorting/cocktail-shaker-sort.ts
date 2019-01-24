@@ -1,3 +1,5 @@
+import { SortComparison, SortSwap } from "./event";
+
 function cocktailShakerSort<Element>({
   collection,
   compare,
@@ -6,8 +8,8 @@ function cocktailShakerSort<Element>({
 }: {
   collection: Element[];
   compare: (a: Element, b: Element) => number;
-  onComparison?: (step: CocktailShakerSortComparison<Element>) => void;
-  onSwap?: (step: CocktailShakerSortSwap<Element>) => void;
+  onComparison?: (step: SortComparison<Element>) => void;
+  onSwap?: (step: SortSwap<Element>) => void;
 }): void {
   let i = 0;
   let maxScanTimes = collection.length * 2;
@@ -60,28 +62,6 @@ function cocktailShakerSort<Element>({
 
     ++i;
   }
-}
-
-export interface CocktailShakerSortComparison<Element> {
-  a: {
-    index: number;
-    value: Element;
-  };
-  b: {
-    index: number;
-    value: Element;
-  };
-}
-
-export interface CocktailShakerSortSwap<Element> {
-  a: {
-    index: number;
-    value: Element;
-  };
-  b: {
-    index: number;
-    value: Element;
-  };
 }
 
 export default cocktailShakerSort;

@@ -1,3 +1,5 @@
+import { SearchComparison } from "./event";
+
 function linearSearch<Element>({
   list,
   target,
@@ -5,7 +7,7 @@ function linearSearch<Element>({
 }: {
   list: Element[];
   target: Element;
-  onComparison?: (comparison: LinearSearchComparison<Element>) => void;
+  onComparison?: (comparison: SearchComparison<Element>) => void;
 }): number {
   let index = 0;
 
@@ -22,11 +24,6 @@ function linearSearch<Element>({
   }
 
   return -1;
-}
-
-export interface LinearSearchComparison<Element> {
-  index: number;
-  value: Element;
 }
 
 export default linearSearch;

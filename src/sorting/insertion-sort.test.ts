@@ -1,7 +1,5 @@
-import insertionSort, {
-  InsertionSortComparison,
-  InsertionSortInsertion
-} from "./insertion-sort";
+import { SortComparison, SortInsertion } from "./event";
+import insertionSort from "./insertion-sort";
 import { charactors, randomSample, staticSample } from "./sample";
 
 test(`insertionSort(collection: ["${randomSample[0]}", "${randomSample[1]}", "${
@@ -20,8 +18,8 @@ test(`insertionSort(collection: ["${randomSample[0]}", "${randomSample[1]}", "${
 });
 
 test("the steps of insertionSort() matches the previous snapshot", () => {
-  const comparisons: InsertionSortComparison<string>[] = [];
-  const insertions: InsertionSortInsertion<string>[] = [];
+  const comparisons: SortComparison<string>[] = [];
+  const insertions: SortInsertion<string>[] = [];
   const collection = [...staticSample];
 
   insertionSort({

@@ -1,3 +1,5 @@
+import { SearchComparison } from "./event";
+
 function binarySearch<Element>({
   list,
   target,
@@ -7,7 +9,7 @@ function binarySearch<Element>({
   list: Element[];
   target: Element;
   compare: (a: Element, b: Element) => number;
-  onComparison?: (step: BinarySearchComparison<Element>) => void;
+  onComparison?: (step: SearchComparison<Element>) => void;
 }): number {
   let searchRangeStart = 0;
   let searchRangeEnd = list.length - 1;
@@ -38,11 +40,6 @@ function binarySearch<Element>({
   }
 
   return foundTargetIndex;
-}
-
-export interface BinarySearchComparison<Element> {
-  index: number;
-  value: Element;
 }
 
 export default binarySearch;

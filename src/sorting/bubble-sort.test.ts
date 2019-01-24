@@ -1,7 +1,5 @@
-import bubbleSort, {
-  BubbleSortComparison,
-  BubbleSortSwap
-} from "./bubble-sort";
+import bubbleSort from "./bubble-sort";
+import { SortComparison, SortSwap } from "./event";
 import { charactors, randomSample, staticSample } from "./sample";
 
 test(`bubbleSort(collection: ["${randomSample[0]}", "${randomSample[1]}", "${
@@ -20,8 +18,8 @@ test(`bubbleSort(collection: ["${randomSample[0]}", "${randomSample[1]}", "${
 });
 
 test("the steps of bubbleSort() matches the previous snapshot", () => {
-  const comparisons: BubbleSortComparison<string>[] = [];
-  const swaps: BubbleSortSwap<string>[] = [];
+  const comparisons: SortComparison<string>[] = [];
+  const swaps: SortSwap<string>[] = [];
   const collection = [...staticSample];
 
   bubbleSort({

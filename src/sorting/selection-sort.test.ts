@@ -1,7 +1,5 @@
-import selectionSort, {
-  SelectionSortComparison,
-  SelectionSortSwap
-} from "./selection-sort";
+import { SortComparison, SortSwap } from "./event";
+import selectionSort from "./selection-sort";
 import { charactors, randomSample, staticSample } from "./sample";
 
 test(`selectionSort(collection: ["${randomSample[0]}", "${randomSample[1]}", "${
@@ -20,8 +18,8 @@ test(`selectionSort(collection: ["${randomSample[0]}", "${randomSample[1]}", "${
 });
 
 test("the steps of selectionSort() matches the previous snapshot", () => {
-  const comparisons: SelectionSortComparison<string>[] = [];
-  const swaps: SelectionSortSwap<string>[] = [];
+  const comparisons: SortComparison<string>[] = [];
+  const swaps: SortSwap<string>[] = [];
   const collection = [...staticSample];
 
   selectionSort({

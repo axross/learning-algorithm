@@ -1,3 +1,5 @@
+import { SortComparison, SortInsertion } from "./event";
+
 function insertionSort<Element>({
   collection,
   compare,
@@ -6,8 +8,8 @@ function insertionSort<Element>({
 }: {
   collection: Element[];
   compare: (a: Element, b: Element) => number;
-  onComparison?: (step: InsertionSortComparison<Element>) => void;
-  onInsertion?: (step: InsertionSortInsertion<Element>) => void;
+  onComparison?: (step: SortComparison<Element>) => void;
+  onInsertion?: (step: SortInsertion<Element>) => void;
 }): void {
   for (let i = 1; i < collection.length; ++i) {
     let insertBefore = i;
@@ -34,28 +36,6 @@ function insertionSort<Element>({
       before: { index: insertBefore, value: bValue }
     });
   }
-}
-
-export interface InsertionSortComparison<Element> {
-  a: {
-    index: number;
-    value: Element;
-  };
-  b: {
-    index: number;
-    value: Element;
-  };
-}
-
-export interface InsertionSortInsertion<Element> {
-  chosen: {
-    index: number;
-    value: Element;
-  };
-  before: {
-    index: number;
-    value: Element;
-  };
 }
 
 export default insertionSort;

@@ -1,4 +1,5 @@
-import binarySearch, { BinarySearchComparison } from "./binary-search";
+import { SearchComparison } from "./event";
+import binarySearch from "./binary-search";
 import { sortedCharactors } from "./sample";
 
 describe("binarySearch", () => {
@@ -25,7 +26,7 @@ describe("binarySearch", () => {
   });
 
   test('the step snapshot by binarySearch(target: "x") matches with the previous one', () => {
-    const comparisons: BinarySearchComparison<string>[] = [];
+    const comparisons: SearchComparison<string>[] = [];
 
     binarySearch({
       list: sortedCharactors,

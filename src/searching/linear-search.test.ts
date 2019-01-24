@@ -1,4 +1,5 @@
-import linearSearch, { LinearSearchComparison } from "./linear-search";
+import { SearchComparison } from "./event";
+import linearSearch from "./linear-search";
 import { unsortedCharactors } from "./sample";
 
 describe("linearSearch", () => {
@@ -23,7 +24,7 @@ describe("linearSearch", () => {
   });
 
   test('the step snapshot by linearSearch(target: "x") matches with the previous one', () => {
-    const comparisons: LinearSearchComparison<string>[] = [];
+    const comparisons: SearchComparison<string>[] = [];
 
     linearSearch({
       list: unsortedCharactors,

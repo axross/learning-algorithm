@@ -1,7 +1,5 @@
-import cocktailShakerSort, {
-  CocktailShakerSortComparison,
-  CocktailShakerSortSwap
-} from "./cocktail-shaker-sort";
+import cocktailShakerSort from "./cocktail-shaker-sort";
+import { SortComparison, SortSwap } from "./event";
 import { charactors, randomSample, staticSample } from "./sample";
 
 test(`cocktailShakerSort(collection: ["${randomSample[0]}", "${
@@ -20,8 +18,8 @@ test(`cocktailShakerSort(collection: ["${randomSample[0]}", "${
 });
 
 test("the steps of cocktailShakerSort() matches the previous snapshot", () => {
-  const comparisons: CocktailShakerSortComparison<string>[] = [];
-  const swaps: CocktailShakerSortSwap<string>[] = [];
+  const comparisons: SortComparison<string>[] = [];
+  const swaps: SortSwap<string>[] = [];
   const collection = [...staticSample];
 
   cocktailShakerSort({

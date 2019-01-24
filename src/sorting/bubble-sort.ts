@@ -1,3 +1,5 @@
+import { SortComparison, SortSwap } from "./event";
+
 function bubbleSort<Element>({
   collection,
   compare,
@@ -6,8 +8,8 @@ function bubbleSort<Element>({
 }: {
   collection: Element[];
   compare: (a: Element, b: Element) => number;
-  onComparison?: (step: BubbleSortComparison<Element>) => void;
-  onSwap?: (step: BubbleSortSwap<Element>) => void;
+  onComparison?: (step: SortComparison<Element>) => void;
+  onSwap?: (step: SortSwap<Element>) => void;
 }): void {
   for (let i = 0; i < collection.length; ++i) {
     let isSwapped = false;
@@ -39,28 +41,6 @@ function bubbleSort<Element>({
       break;
     }
   }
-}
-
-export interface BubbleSortComparison<Element> {
-  a: {
-    index: number;
-    value: Element;
-  };
-  b: {
-    index: number;
-    value: Element;
-  };
-}
-
-export interface BubbleSortSwap<Element> {
-  a: {
-    index: number;
-    value: Element;
-  };
-  b: {
-    index: number;
-    value: Element;
-  };
 }
 
 export default bubbleSort;

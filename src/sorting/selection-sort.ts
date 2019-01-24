@@ -1,3 +1,5 @@
+import { SortComparison, SortSwap } from "./event";
+
 function selectionSort<Element>({
   collection,
   compare,
@@ -6,8 +8,8 @@ function selectionSort<Element>({
 }: {
   collection: Element[];
   compare: (a: Element, b: Element) => number;
-  onComparison?: (step: SelectionSortSwap<Element>) => void;
-  onSwap?: (step: SelectionSortSwap<Element>) => void;
+  onComparison?: (step: SortComparison<Element>) => void;
+  onSwap?: (step: SortSwap<Element>) => void;
 }): void {
   for (let i = 0; i < collection.length - 1; ++i) {
     let minimumValueIndex = i;
@@ -49,28 +51,6 @@ function selectionSort<Element>({
       }
     });
   }
-}
-
-export interface SelectionSortComparison<Element> {
-  a: {
-    index: number;
-    value: Element;
-  };
-  b: {
-    index: number;
-    value: Element;
-  };
-}
-
-export interface SelectionSortSwap<Element> {
-  a: {
-    index: number;
-    value: Element;
-  };
-  b: {
-    index: number;
-    value: Element;
-  };
 }
 
 export default selectionSort;
