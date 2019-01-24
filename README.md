@@ -1,5 +1,10 @@
 # Example implementations to learn algorithms
 
+- 🧹 Simple (readable) implementation
+- 👾 No micro optimization
+- ⛑ Well tested
+- 🕵️‍♀️ Event-trackable
+
 ## Implementations
 
 ### Data structure
