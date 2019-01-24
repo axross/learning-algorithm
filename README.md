@@ -20,7 +20,7 @@
 - Exchanging
   - [x] [Bubble sort](src/sorting/bubble-sort.ts) ([Wikipedia](https://en.wikipedia.org/wiki/Bubble_sort))
   - [ ] Comb sort ([Wikipedia](https://en.wikipedia.org/wiki/Comb_sort))
-  - [ ] Cocktail shaker sort ([Wikipedia](https://en.wikipedia.org/wiki/Cocktail_shaker_sort))
+  - [x] Cocktail shaker sort ([Wikipedia](https://en.wikipedia.org/wiki/Cocktail_shaker_sort))
 - Selection
   - [x] [Selection sort](src/sorting/selection-sort.ts) ([Wikipedia](https://en.wikipedia.org/wiki/Selection_sort))
   - [ ] Heap sort ([Wikipedia](https://en.wikipedia.org/wiki/Heapsort))
