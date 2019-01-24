@@ -27,7 +27,7 @@ test("the steps of bubbleSort() matches the previous snapshot", () => {
   bubbleSort({
     collection,
     compare: (a, b) => a.charCodeAt(0) - b.charCodeAt(0),
-    onCompare: comparison => comparisons.push(comparison),
+    onComparison: comparison => comparisons.push(comparison),
     onSwap: swap => swaps.push(swap)
   });
 

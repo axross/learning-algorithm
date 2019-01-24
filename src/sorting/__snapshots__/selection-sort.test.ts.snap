@@ -298,61 +298,61 @@ Object {
     Object {
       "a": Object {
         "index": 0,
-        "value": "f",
+        "value": "a",
       },
       "b": Object {
         "index": 2,
-        "value": "a",
+        "value": "f",
       },
     },
     Object {
       "a": Object {
         "index": 1,
-        "value": "g",
+        "value": "b",
       },
       "b": Object {
         "index": 3,
-        "value": "b",
+        "value": "g",
       },
     },
     Object {
       "a": Object {
         "index": 2,
-        "value": "f",
+        "value": "c",
       },
       "b": Object {
         "index": 4,
-        "value": "c",
+        "value": "f",
       },
     },
     Object {
       "a": Object {
         "index": 3,
-        "value": "g",
+        "value": "d",
       },
       "b": Object {
         "index": 5,
-        "value": "d",
+        "value": "g",
       },
     },
     Object {
       "a": Object {
         "index": 4,
-        "value": "f",
+        "value": "e",
       },
       "b": Object {
         "index": 6,
-        "value": "e",
+        "value": "f",
       },
     },
     Object {
       "a": Object {
         "index": 5,
-        "value": "g",
+        "value": "f",
       },
       "b": Object {
         "index": 6,
-        "value": "f",
+        "value": "g",
       },
     },
   ],

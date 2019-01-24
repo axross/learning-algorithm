@@ -1,37 +1,44 @@
 function bubbleSort<Element>({
   collection,
   compare,
-  onCompare = () => {},
+  onComparison = () => {},
   onSwap = () => {}
 }: {
   collection: Element[];
   compare: (a: Element, b: Element) => number;
-  onCompare?: (step: BubbleSortComparison<Element>) => void;
+  onComparison?: (step: BubbleSortComparison<Element>) => void;
   onSwap?: (step: BubbleSortSwap<Element>) => void;
 }): void {
-  let isSwapped = false;
+  for (let i = 0; i < collection.length; ++i) {
+    let isSwapped = false;
 
-  do {
-    isSwapped = false;
+    for (let a = 0, b = 1; b < collection.length - i; ++a, ++b) {
+      const shouldABeforeB = compare(collection[a], collection[b]) > 0;
 
-    for (let a = 0, b = 1; b < collection.length; ++a, ++b) {
-      onCompare({
+      onComparison({
         a: { index: a, value: collection[a] },
         b: { index: b, value: collection[b] }
       });
 
-      if (compare(collection[a], collection[b]) > 0) {
-        onSwap({
-          a: { index: a, value: collection[a] },
-          b: { index: b, value: collection[b] }
-        });
+      if (shouldABeforeB) {
+        const aValue = collection[a];
+        const bValue = collection[b];
 
-        [collection[a], collection[b]] = [collection[b], collection[a]];
+        [collection[a], collection[b]] = [bValue, aValue];
+
+        onSwap({
+          a: { index: a, value: aValue },
+          b: { index: b, value: bValue }
+        });
 
         isSwapped = true;
       }
     }
-  } while (isSwapped);
+
+    if (!isSwapped) {
+      break;
+    }
+  }
 }
 
 export interface BubbleSortComparison<Element> {

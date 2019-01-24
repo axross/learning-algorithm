@@ -2,12 +2,12 @@ function binarySearch<Element>({
   list,
   target,
   compare,
-  onCompare = () => {}
+  onComparison = () => {}
 }: {
   list: Element[];
   target: Element;
   compare: (a: Element, b: Element) => number;
-  onCompare?: (step: BinarySearchComparison<Element>) => void;
+  onComparison?: (step: BinarySearchComparison<Element>) => void;
 }): number {
   let searchRangeStart = 0;
   let searchRangeEnd = list.length - 1;
@@ -25,7 +25,7 @@ function binarySearch<Element>({
       break;
     }
 
-    onCompare({
+    onComparison({
       index: searchRangeMiddle,
       value: picked
     });

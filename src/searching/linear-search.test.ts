@@ -28,7 +28,7 @@ describe("linearSearch", () => {
     linearSearch({
       list: unsortedCharactors,
       target: "x",
-      onCompare: comparison => comparisons.push(comparison)
+      onComparison: comparison => comparisons.push(comparison)
     });
 
     expect({

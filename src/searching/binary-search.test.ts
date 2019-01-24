@@ -31,7 +31,7 @@ describe("binarySearch", () => {
       list: sortedCharactors,
       target: "x",
       compare: (a, b) => a.charCodeAt(0) - b.charCodeAt(0),
-      onCompare: comparison => comparisons.push(comparison)
+      onComparison: comparison => comparisons.push(comparison)
     });
 
     expect({

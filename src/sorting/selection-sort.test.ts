@@ -27,7 +27,7 @@ test("the steps of selectionSort() matches the previous snapshot", () => {
   selectionSort({
     collection,
     compare: (a, b) => a.charCodeAt(0) - b.charCodeAt(0),
-    onCompare: comparison => comparisons.push(comparison),
+    onComparison: comparison => comparisons.push(comparison),
     onSwap: swap => swaps.push(swap)
   });
 

@@ -1,19 +1,19 @@
 function selectionSort<Element>({
   collection,
   compare,
-  onCompare = () => {},
+  onComparison = () => {},
   onSwap = () => {}
 }: {
   collection: Element[];
   compare: (a: Element, b: Element) => number;
-  onCompare?: (step: SelectionSortSwap<Element>) => void;
+  onComparison?: (step: SelectionSortSwap<Element>) => void;
   onSwap?: (step: SelectionSortSwap<Element>) => void;
 }): void {
   for (let i = 0; i < collection.length - 1; ++i) {
     let minimumValueIndex = i;
 
     for (let j = i + 1; j < collection.length; ++j) {
-      onCompare({
+      onComparison({
         a: {
           index: i,
           value: collection[j]
@@ -33,6 +33,11 @@ function selectionSort<Element>({
       continue;
     }
 
+    const aValue = collection[i];
+    const bValue = collection[minimumValueIndex];
+
+    [collection[i], collection[minimumValueIndex]] = [bValue, aValue];
+
     onSwap({
       a: {
         index: i,
@@ -43,11 +48,6 @@ function selectionSort<Element>({
         value: collection[minimumValueIndex]
       }
     });
-
-    [collection[i], collection[minimumValueIndex]] = [
-      collection[minimumValueIndex],
-      collection[i]
-    ];
   }
 }
 

@@ -135,16 +135,6 @@ Object {
     },
     Object {
       "a": Object {
-        "index": 6,
-        "value": "g",
-      },
-      "b": Object {
-        "index": 7,
-        "value": "h",
-      },
-    },
-    Object {
-      "a": Object {
         "index": 0,
         "value": "a",
       },
@@ -191,26 +181,6 @@ Object {
       "b": Object {
         "index": 5,
         "value": "f",
-      },
-    },
-    Object {
-      "a": Object {
-        "index": 5,
-        "value": "f",
-      },
-      "b": Object {
-        "index": 6,
-        "value": "g",
-      },
-    },
-    Object {
-      "a": Object {
-        "index": 6,
-        "value": "g",
-      },
-      "b": Object {
-        "index": 7,
-        "value": "h",
       },
     },
   ],

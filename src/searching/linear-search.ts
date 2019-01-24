@@ -1,18 +1,18 @@
 function linearSearch<Element>({
   list,
   target,
-  onCompare = () => {}
+  onComparison = () => {}
 }: {
   list: Element[];
   target: Element;
-  onCompare?: (comparison: LinearSearchComparison<Element>) => void;
+  onComparison?: (comparison: LinearSearchComparison<Element>) => void;
 }): number {
   let index = 0;
 
   while (index < list.length) {
     const value = list[index];
 
-    onCompare({ index, value });
+    onComparison({ index, value });
 
     if (value === target) {
       return index;
