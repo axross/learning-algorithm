@@ -1,38 +1,35 @@
-import { SortComparison, SortSwap } from "./event";
 import selectionSort from "./selection-sort";
-import { charactors, randomSample, staticSample } from "./sample";
+import { charactors, getRandomSample, staticSample } from "./sample";
 
-test(`selectionSort(collection: ["${randomSample[0]}", "${randomSample[1]}", "${
-  randomSample[2]
-}" ... ${
-  randomSample.length
-} items]) sorts the collection to be ordered`, () => {
-  const collection = [...randomSample];
+test(`selectionSort() sorts the collection to be ordered`, () => {
+  for (let i = 1; i <= 100; ++i) {
+    const collection = [...getRandomSample()];
 
-  selectionSort({
-    collection,
-    compare: (a, b) => a.charCodeAt(0) - b.charCodeAt(0)
-  });
+    selectionSort({
+      collection,
+      compare: (a, b) => a.charCodeAt(0) - b.charCodeAt(0)
+    });
 
-  expect(collection).toEqual(charactors);
+    expect(collection).toEqual(charactors);
+  }
 });
 
-test("the steps of selectionSort() matches the previous snapshot", () => {
-  const comparisons: SortComparison<string>[] = [];
-  const swaps: SortSwap<string>[] = [];
+test("selectionSort() does selection sort", () => {
+  const changes: string[][] = [];
   const collection = [...staticSample];
 
   selectionSort({
     collection,
     compare: (a, b) => a.charCodeAt(0) - b.charCodeAt(0),
-    onComparison: comparison => comparisons.push(comparison),
-    onSwap: swap => swaps.push(swap)
+    onSwap: () => changes.push([...collection])
   });
 
-  expect({
-    from: staticSample,
-    to: collection,
-    comparisons,
-    swaps
-  }).toMatchSnapshot();
+  expect(changes).toEqual([
+    ["a", "f", "h", "b", "d", "g", "e", "c"],
+    ["a", "b", "h", "f", "d", "g", "e", "c"],
+    ["a", "b", "c", "f", "d", "g", "e", "h"],
+    ["a", "b", "c", "d", "f", "g", "e", "h"],
+    ["a", "b", "c", "d", "e", "g", "f", "h"],
+    ["a", "b", "c", "d", "e", "f", "g", "h"]
+  ]);
 });

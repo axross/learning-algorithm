@@ -25,6 +25,10 @@ function insertionSort<Element>({
       }
     }
 
+    if (i === insertBefore) {
+      continue;
+    }
+
     const iValue = collection[i];
     const bValue = collection[insertBefore];
 

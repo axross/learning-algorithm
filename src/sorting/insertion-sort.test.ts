@@ -1,38 +1,35 @@
-import { SortComparison, SortInsertion } from "./event";
 import insertionSort from "./insertion-sort";
-import { charactors, randomSample, staticSample } from "./sample";
+import { charactors, getRandomSample, staticSample } from "./sample";
 
-test(`insertionSort(collection: ["${randomSample[0]}", "${randomSample[1]}", "${
-  randomSample[2]
-}" ... ${
-  randomSample.length
-} items]) sorts the collection to be ordered`, () => {
-  const collection = [...randomSample];
+test(`insertionSort() sorts the collection to be ordered`, () => {
+  for (let i = 1; i <= 100; ++i) {
+    const collection = [...getRandomSample()];
 
-  insertionSort({
-    collection,
-    compare: (a, b) => a.charCodeAt(0) - b.charCodeAt(0)
-  });
+    insertionSort({
+      collection,
+      compare: (a, b) => a.charCodeAt(0) - b.charCodeAt(0)
+    });
 
-  expect(collection).toEqual(charactors);
+    expect(collection).toEqual(charactors);
+  }
 });
 
-test("the steps of insertionSort() matches the previous snapshot", () => {
-  const comparisons: SortComparison<string>[] = [];
-  const insertions: SortInsertion<string>[] = [];
+test("insertionSort() does insertion sort", () => {
+  const changes: string[][] = [];
   const collection = [...staticSample];
 
   insertionSort({
     collection,
     compare: (a, b) => a.charCodeAt(0) - b.charCodeAt(0),
-    onComparison: comparison => comparisons.push(comparison),
-    onInsertion: insertion => insertions.push(insertion)
+    onInsertion: () => changes.push([...collection])
   });
 
-  expect({
-    from: staticSample,
-    to: collection,
-    comparisons,
-    insertions
-  }).toMatchSnapshot();
+  expect(changes).toEqual([
+    ["a", "f", "h", "b", "d", "g", "e", "c"],
+    ["a", "b", "f", "h", "d", "g", "e", "c"],
+    ["a", "b", "d", "f", "h", "g", "e", "c"],
+    ["a", "b", "d", "f", "g", "h", "e", "c"],
+    ["a", "b", "d", "e", "f", "g", "h", "c"],
+    ["a", "b", "c", "d", "e", "f", "g", "h"]
+  ]);
 });
