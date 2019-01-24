@@ -1,0 +1,380 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`the steps of insertionSort() matches the previous snapshot 1`] = `
+Object {
+  "comparisons": Array [
+    Object {
+      "a": Object {
+        "index": 1,
+        "value": "g",
+      },
+      "b": Object {
+        "index": 0,
+        "value": "f",
+      },
+    },
+    Object {
+      "a": Object {
+        "index": 2,
+        "value": "a",
+      },
+      "b": Object {
+        "index": 0,
+        "value": "f",
+      },
+    },
+    Object {
+      "a": Object {
+        "index": 2,
+        "value": "a",
+      },
+      "b": Object {
+        "index": 1,
+        "value": "g",
+      },
+    },
+    Object {
+      "a": Object {
+        "index": 3,
+        "value": "b",
+      },
+      "b": Object {
+        "index": 0,
+        "value": "a",
+      },
+    },
+    Object {
+      "a": Object {
+        "index": 3,
+        "value": "b",
+      },
+      "b": Object {
+        "index": 1,
+        "value": "f",
+      },
+    },
+    Object {
+      "a": Object {
+        "index": 3,
+        "value": "b",
+      },
+      "b": Object {
+        "index": 2,
+        "value": "g",
+      },
+    },
+    Object {
+      "a": Object {
+        "index": 4,
+        "value": "c",
+      },
+      "b": Object {
+        "index": 0,
+        "value": "a",
+      },
+    },
+    Object {
+      "a": Object {
+        "index": 4,
+        "value": "c",
+      },
+      "b": Object {
+        "index": 1,
+        "value": "b",
+      },
+    },
+    Object {
+      "a": Object {
+        "index": 4,
+        "value": "c",
+      },
+      "b": Object {
+        "index": 2,
+        "value": "f",
+      },
+    },
+    Object {
+      "a": Object {
+        "index": 4,
+        "value": "c",
+      },
+      "b": Object {
+        "index": 3,
+        "value": "g",
+      },
+    },
+    Object {
+      "a": Object {
+        "index": 5,
+        "value": "d",
+      },
+      "b": Object {
+        "index": 0,
+        "value": "a",
+      },
+    },
+    Object {
+      "a": Object {
+        "index": 5,
+        "value": "d",
+      },
+      "b": Object {
+        "index": 1,
+        "value": "b",
+      },
+    },
+    Object {
+      "a": Object {
+        "index": 5,
+        "value": "d",
+      },
+      "b": Object {
+        "index": 2,
+        "value": "c",
+      },
+    },
+    Object {
+      "a": Object {
+        "index": 5,
+        "value": "d",
+      },
+      "b": Object {
+        "index": 3,
+        "value": "f",
+      },
+    },
+    Object {
+      "a": Object {
+        "index": 5,
+        "value": "d",
+      },
+      "b": Object {
+        "index": 4,
+        "value": "g",
+      },
+    },
+    Object {
+      "a": Object {
+        "index": 6,
+        "value": "e",
+      },
+      "b": Object {
+        "index": 0,
+        "value": "a",
+      },
+    },
+    Object {
+      "a": Object {
+        "index": 6,
+        "value": "e",
+      },
+      "b": Object {
+        "index": 1,
+        "value": "b",
+      },
+    },
+    Object {
+      "a": Object {
+        "index": 6,
+        "value": "e",
+      },
+      "b": Object {
+        "index": 2,
+        "value": "c",
+      },
+    },
+    Object {
+      "a": Object {
+        "index": 6,
+        "value": "e",
+      },
+      "b": Object {
+        "index": 3,
+        "value": "d",
+      },
+    },
+    Object {
+      "a": Object {
+        "index": 6,
+        "value": "e",
+      },
+      "b": Object {
+        "index": 4,
+        "value": "f",
+      },
+    },
+    Object {
+      "a": Object {
+        "index": 6,
+        "value": "e",
+      },
+      "b": Object {
+        "index": 5,
+        "value": "g",
+      },
+    },
+    Object {
+      "a": Object {
+        "index": 7,
+        "value": "h",
+      },
+      "b": Object {
+        "index": 0,
+        "value": "a",
+      },
+    },
+    Object {
+      "a": Object {
+        "index": 7,
+        "value": "h",
+      },
+      "b": Object {
+        "index": 1,
+        "value": "b",
+      },
+    },
+    Object {
+      "a": Object {
+        "index": 7,
+        "value": "h",
+      },
+      "b": Object {
+        "index": 2,
+        "value": "c",
+      },
+    },
+    Object {
+      "a": Object {
+        "index": 7,
+        "value": "h",
+      },
+      "b": Object {
+        "index": 3,
+        "value": "d",
+      },
+    },
+    Object {
+      "a": Object {
+        "index": 7,
+        "value": "h",
+      },
+      "b": Object {
+        "index": 4,
+        "value": "e",
+      },
+    },
+    Object {
+      "a": Object {
+        "index": 7,
+        "value": "h",
+      },
+      "b": Object {
+        "index": 5,
+        "value": "f",
+      },
+    },
+    Object {
+      "a": Object {
+        "index": 7,
+        "value": "h",
+      },
+      "b": Object {
+        "index": 6,
+        "value": "g",
+      },
+    },
+  ],
+  "from": Array [
+    "f",
+    "g",
+    "a",
+    "b",
+    "c",
+    "d",
+    "e",
+    "h",
+  ],
+  "insertions": Array [
+    Object {
+      "before": Object {
+        "index": 1,
+        "value": "g",
+      },
+      "chosen": Object {
+        "index": 1,
+        "value": "g",
+      },
+    },
+    Object {
+      "before": Object {
+        "index": 0,
+        "value": "f",
+      },
+      "chosen": Object {
+        "index": 2,
+        "value": "a",
+      },
+    },
+    Object {
+      "before": Object {
+        "index": 1,
+        "value": "f",
+      },
+      "chosen": Object {
+        "index": 3,
+        "value": "b",
+      },
+    },
+    Object {
+      "before": Object {
+        "index": 2,
+        "value": "f",
+      },
+      "chosen": Object {
+        "index": 4,
+        "value": "c",
+      },
+    },
+    Object {
+      "before": Object {
+        "index": 3,
+        "value": "f",
+      },
+      "chosen": Object {
+        "index": 5,
+        "value": "d",
+      },
+    },
+    Object {
+      "before": Object {
+        "index": 4,
+        "value": "f",
+      },
+      "chosen": Object {
+        "index": 6,
+        "value": "e",
+      },
+    },
+    Object {
+      "before": Object {
+        "index": 7,
+        "value": "h",
+      },
+      "chosen": Object {
+        "index": 7,
+        "value": "h",
+      },
+    },
+  ],
+  "to": Array [
+    "a",
+    "b",
+    "c",
+    "d",
+    "e",
+    "f",
+    "g",
+    "h",
+  ],
+}
+`;
