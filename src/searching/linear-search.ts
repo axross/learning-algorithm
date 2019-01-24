@@ -1,18 +1,18 @@
 import { SearchComparison } from "./event";
 
-function linearSearch<Element>({
-  list,
+function linearSearch<Value>({
+  array,
   target,
   onComparison = () => {}
 }: {
-  list: Element[];
-  target: Element;
-  onComparison?: (comparison: SearchComparison<Element>) => void;
+  array: Value[];
+  target: Value;
+  onComparison?: (comparison: SearchComparison<Value>) => void;
 }): number {
   let index = 0;
 
-  while (index < list.length) {
-    const value = list[index];
+  while (index < array.length) {
+    const value = array[index];
 
     onComparison({ index, value });
 

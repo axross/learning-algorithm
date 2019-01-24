@@ -1,4 +1,3 @@
-import { SearchComparison } from "./event";
 import linearSearch from "./linear-search";
 import { unsortedCharactors } from "./sample";
 
@@ -8,7 +7,7 @@ describe("linearSearch", () => {
   )}`, () => {
     expect(
       linearSearch({
-        list: unsortedCharactors,
+        array: unsortedCharactors,
         target: "x"
       })
     ).toBe(unsortedCharactors.indexOf("x"));
@@ -17,25 +16,39 @@ describe("linearSearch", () => {
   test("linearSearch(target: 25000) doesn't find it", () => {
     expect(
       linearSearch({
-        list: unsortedCharactors,
+        array: unsortedCharactors,
         target: "🍣"
       })
     ).toBe(-1);
   });
 
-  test('the step snapshot by linearSearch(target: "x") matches with the previous one', () => {
-    const comparisons: SearchComparison<string>[] = [];
+  test('linearSearch(target: "x") finds the target in the correct process', () => {
+    const comparisonTargets: string[] = [];
 
     linearSearch({
-      list: unsortedCharactors,
+      array: unsortedCharactors,
       target: "x",
-      onComparison: comparison => comparisons.push(comparison)
+      onComparison: comparison => comparisonTargets.push(comparison.value)
     });
 
-    expect({
-      from: unsortedCharactors,
-      target: "x",
-      comparisons
-    }).toMatchSnapshot();
+    expect(comparisonTargets).toEqual([
+      "c",
+      "n",
+      "r",
+      "j",
+      "m",
+      "s",
+      "b",
+      "u",
+      "w",
+      "y",
+      "h",
+      "t",
+      "v",
+      "f",
+      "z",
+      "g",
+      "x"
+    ]);
   });
 });

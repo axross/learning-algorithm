@@ -10,11 +10,9 @@ export interface SortComparison<Element> {
 }
 
 export interface SortInsertion<Element> {
-  chosen: {
-    index: number;
-    value: Element;
-  };
-  before: {
+  oldIndex: number;
+  value: Element;
+  insertedBefore: {
     index: number;
     value: Element;
   };

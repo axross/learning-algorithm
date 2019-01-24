@@ -1,32 +1,32 @@
 import { SortComparison, SortSwap } from "./event";
 
-function bubbleSort<Element>({
-  collection,
+function bubbleSort<Value>({
+  array,
   compare,
   onComparison = () => {},
   onSwap = () => {}
 }: {
-  collection: Element[];
-  compare: (a: Element, b: Element) => number;
-  onComparison?: (step: SortComparison<Element>) => void;
-  onSwap?: (step: SortSwap<Element>) => void;
+  array: Value[];
+  compare: (a: Value, b: Value) => number;
+  onComparison?: (step: SortComparison<Value>) => void;
+  onSwap?: (step: SortSwap<Value>) => void;
 }): void {
-  for (let i = 0; i < collection.length; ++i) {
+  for (let i = 0; i < array.length; ++i) {
     let isSwapped = false;
 
-    for (let a = 0, b = 1; b < collection.length - i; ++a, ++b) {
-      const shouldABeforeB = compare(collection[a], collection[b]) > 0;
+    for (let a = 0, b = 1; b < array.length - i; ++a, ++b) {
+      const shouldABeforeB = compare(array[a], array[b]) > 0;
 
       onComparison({
-        a: { index: a, value: collection[a] },
-        b: { index: b, value: collection[b] }
+        a: { index: a, value: array[a] },
+        b: { index: b, value: array[b] }
       });
 
       if (shouldABeforeB) {
-        const aValue = collection[a];
-        const bValue = collection[b];
+        const aValue = array[a];
+        const bValue = array[b];
 
-        [collection[a], collection[b]] = [bValue, aValue];
+        [array[a], array[b]] = [bValue, aValue];
 
         onSwap({
           a: { index: a, value: aValue },

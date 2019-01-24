@@ -1,23 +1,23 @@
 import { SortComparison, SortSwap } from "./event";
 
-function cocktailShakerSort<Element>({
-  collection,
+function cocktailShakerSort<Value>({
+  array,
   compare,
   onComparison = () => {},
   onSwap = () => {}
 }: {
-  collection: Element[];
-  compare: (a: Element, b: Element) => number;
-  onComparison?: (step: SortComparison<Element>) => void;
-  onSwap?: (step: SortSwap<Element>) => void;
+  array: Value[];
+  compare: (a: Value, b: Value) => number;
+  onComparison?: (step: SortComparison<Value>) => void;
+  onSwap?: (step: SortSwap<Value>) => void;
 }): void {
   let i = 0;
-  let maxScanTimes = collection.length * 2;
+  let maxScanTimes = array.length * 2;
 
   while (i <= maxScanTimes) {
     const isAscendingScan = i % 2 === 0;
     const scanStart = 0 + Math.floor(i / 2);
-    const scanEnd = collection.length - 1 - Math.ceil(i / 2);
+    const scanEnd = array.length - 1 - Math.ceil(i / 2);
     let a = isAscendingScan ? scanStart : scanEnd - 1;
     let b = isAscendingScan ? scanStart + 1 : scanEnd;
     let isSwapped = false;
@@ -26,18 +26,18 @@ function cocktailShakerSort<Element>({
       (isAscendingScan && b <= scanEnd) ||
       (!isAscendingScan && a >= scanStart)
     ) {
-      const shouldABeforeB = compare(collection[a], collection[b]) > 0;
+      const shouldABeforeB = compare(array[a], array[b]) > 0;
 
       onComparison({
-        a: { index: a, value: collection[a] },
-        b: { index: b, value: collection[b] }
+        a: { index: a, value: array[a] },
+        b: { index: b, value: array[b] }
       });
 
       if (shouldABeforeB) {
-        const aValue = collection[a];
-        const bValue = collection[b];
+        const aValue = array[a];
+        const bValue = array[b];
 
-        [collection[a], collection[b]] = [bValue, aValue];
+        [array[a], array[b]] = [bValue, aValue];
 
         onSwap({
           a: { index: a, value: aValue },

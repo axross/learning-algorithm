@@ -1,30 +1,30 @@
 import bubbleSort from "./bubble-sort";
 import { charactors, getRandomSample, staticSample } from "./sample";
 
-test(`bubbleSort() sorts the collection to be ordered`, () => {
+test(`bubbleSort() sorts the array to be ordered`, () => {
   for (let i = 1; i <= 100; ++i) {
-    const collection = [...getRandomSample()];
+    const array = [...getRandomSample()];
 
     bubbleSort({
-      collection,
+      array,
       compare: (a, b) => a.charCodeAt(0) - b.charCodeAt(0)
     });
 
-    expect(collection).toEqual(charactors);
+    expect(array).toEqual(charactors);
   }
 });
 
-test("bubbleSort() does bubble sort", () => {
-  const changes: string[][] = [];
-  const collection = [...staticSample];
+test("bubbleSort() sorts the array in the correct process", () => {
+  const changesOnSwap: string[][] = [];
+  const array = [...staticSample];
 
   bubbleSort({
-    collection,
+    array,
     compare: (a, b) => a.charCodeAt(0) - b.charCodeAt(0),
-    onSwap: () => changes.push([...collection])
+    onSwap: () => changesOnSwap.push([...array])
   });
 
-  expect(changes).toEqual([
+  expect(changesOnSwap).toEqual([
     ["a", "f", "h", "b", "d", "g", "e", "c"],
     ["a", "f", "b", "h", "d", "g", "e", "c"],
     ["a", "f", "b", "d", "h", "g", "e", "c"],

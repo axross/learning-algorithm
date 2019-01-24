@@ -1,30 +1,30 @@
 import selectionSort from "./selection-sort";
 import { charactors, getRandomSample, staticSample } from "./sample";
 
-test(`selectionSort() sorts the collection to be ordered`, () => {
+test(`selectionSort() sorts the array to be ordered`, () => {
   for (let i = 1; i <= 100; ++i) {
-    const collection = [...getRandomSample()];
+    const array = [...getRandomSample()];
 
     selectionSort({
-      collection,
+      array,
       compare: (a, b) => a.charCodeAt(0) - b.charCodeAt(0)
     });
 
-    expect(collection).toEqual(charactors);
+    expect(array).toEqual(charactors);
   }
 });
 
-test("selectionSort() does selection sort", () => {
-  const changes: string[][] = [];
-  const collection = [...staticSample];
+test("selectionSort() sorts the array in the correct process", () => {
+  const changesOnSwap: string[][] = [];
+  const array = [...staticSample];
 
   selectionSort({
-    collection,
+    array,
     compare: (a, b) => a.charCodeAt(0) - b.charCodeAt(0),
-    onSwap: () => changes.push([...collection])
+    onSwap: () => changesOnSwap.push([...array])
   });
 
-  expect(changes).toEqual([
+  expect(changesOnSwap).toEqual([
     ["a", "f", "h", "b", "d", "g", "e", "c"],
     ["a", "b", "h", "f", "d", "g", "e", "c"],
     ["a", "b", "c", "f", "d", "g", "e", "h"],

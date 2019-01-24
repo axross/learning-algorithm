@@ -1,25 +1,25 @@
 import { SearchComparison } from "./event";
 
-function binarySearch<Element>({
-  list,
+function binarySearch<Value>({
+  array,
   target,
   compare,
   onComparison = () => {}
 }: {
-  list: Element[];
-  target: Element;
-  compare: (a: Element, b: Element) => number;
-  onComparison?: (step: SearchComparison<Element>) => void;
+  array: Value[];
+  target: Value;
+  compare: (a: Value, b: Value) => number;
+  onComparison?: (step: SearchComparison<Value>) => void;
 }): number {
   let searchRangeStart = 0;
-  let searchRangeEnd = list.length - 1;
+  let searchRangeEnd = array.length - 1;
   let searchRangeMiddle: number;
   let foundTargetIndex: number = -1;
 
   while (searchRangeStart <= searchRangeEnd) {
     searchRangeMiddle = Math.floor((searchRangeStart + searchRangeEnd) / 2);
 
-    const picked = list[searchRangeMiddle];
+    const picked = array[searchRangeMiddle];
 
     if (picked === target) {
       foundTargetIndex = searchRangeMiddle;

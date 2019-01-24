@@ -1,32 +1,32 @@
 import { SortComparison, SortSwap } from "./event";
 
-function selectionSort<Element>({
-  collection,
+function selectionSort<Value>({
+  array,
   compare,
   onComparison = () => {},
   onSwap = () => {}
 }: {
-  collection: Element[];
-  compare: (a: Element, b: Element) => number;
-  onComparison?: (step: SortComparison<Element>) => void;
-  onSwap?: (step: SortSwap<Element>) => void;
+  array: Value[];
+  compare: (a: Value, b: Value) => number;
+  onComparison?: (step: SortComparison<Value>) => void;
+  onSwap?: (step: SortSwap<Value>) => void;
 }): void {
-  for (let i = 0; i < collection.length - 1; ++i) {
+  for (let i = 0; i < array.length - 1; ++i) {
     let minimumValueIndex = i;
 
-    for (let j = i + 1; j < collection.length; ++j) {
+    for (let j = i + 1; j < array.length; ++j) {
       onComparison({
         a: {
           index: i,
-          value: collection[j]
+          value: array[j]
         },
         b: {
           index: minimumValueIndex,
-          value: collection[minimumValueIndex]
+          value: array[minimumValueIndex]
         }
       });
 
-      if (compare(collection[j], collection[minimumValueIndex]) < 0) {
+      if (compare(array[j], array[minimumValueIndex]) < 0) {
         minimumValueIndex = j;
       }
     }
@@ -35,19 +35,19 @@ function selectionSort<Element>({
       continue;
     }
 
-    const aValue = collection[i];
-    const bValue = collection[minimumValueIndex];
+    const aValue = array[i];
+    const bValue = array[minimumValueIndex];
 
-    [collection[i], collection[minimumValueIndex]] = [bValue, aValue];
+    [array[i], array[minimumValueIndex]] = [bValue, aValue];
 
     onSwap({
       a: {
         index: i,
-        value: collection[i]
+        value: array[i]
       },
       b: {
         index: minimumValueIndex,
-        value: collection[minimumValueIndex]
+        value: array[minimumValueIndex]
       }
     });
   }

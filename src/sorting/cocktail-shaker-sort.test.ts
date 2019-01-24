@@ -1,30 +1,30 @@
 import cocktailShakerSort from "./cocktail-shaker-sort";
 import { charactors, getRandomSample, staticSample } from "./sample";
 
-test(`cocktailShakerSort() sorts the collection to be ordered`, () => {
+test(`cocktailShakerSort() sorts the array to be ordered`, () => {
   for (let i = 1; i <= 100; ++i) {
-    const collection = [...getRandomSample()];
+    const array = [...getRandomSample()];
 
     cocktailShakerSort({
-      collection,
+      array,
       compare: (a, b) => a.charCodeAt(0) - b.charCodeAt(0)
     });
 
-    expect(collection).toEqual(charactors);
+    expect(array).toEqual(charactors);
   }
 });
 
-test("cocktailShakerSort() does cocktail shaker sort", () => {
-  const changes: string[][] = [];
-  const collection = [...staticSample];
+test("cocktailShakerSort() sorts the array in the correct process", () => {
+  const changesOnSwap: string[][] = [];
+  const array = [...staticSample];
 
   cocktailShakerSort({
-    collection,
+    array,
     compare: (a, b) => a.charCodeAt(0) - b.charCodeAt(0),
-    onSwap: () => changes.push([...collection])
+    onSwap: () => changesOnSwap.push([...array])
   });
 
-  expect(changes).toEqual([
+  expect(changesOnSwap).toEqual([
     ["a", "f", "h", "b", "d", "g", "e", "c"],
     ["a", "f", "b", "h", "d", "g", "e", "c"],
     ["a", "f", "b", "d", "h", "g", "e", "c"],

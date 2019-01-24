@@ -1,4 +1,3 @@
-import { SearchComparison } from "./event";
 import binarySearch from "./binary-search";
 import { sortedCharactors } from "./sample";
 
@@ -8,7 +7,7 @@ describe("binarySearch", () => {
   )}`, () => {
     expect(
       binarySearch({
-        list: sortedCharactors,
+        array: sortedCharactors,
         target: "x",
         compare: (a, b) => a.charCodeAt(0) - b.charCodeAt(0)
       })
@@ -18,27 +17,23 @@ describe("binarySearch", () => {
   test("binarySearch(target: 25000) doesn't find it", () => {
     expect(
       binarySearch({
-        list: sortedCharactors,
+        array: sortedCharactors,
         target: "🍣",
         compare: (a, b) => a.charCodeAt(0) - b.charCodeAt(0)
       })
     ).toBe(-1);
   });
 
-  test('the step snapshot by binarySearch(target: "x") matches with the previous one', () => {
-    const comparisons: SearchComparison<string>[] = [];
+  test('binarySearch(target: "x") finds the target in the correct process', () => {
+    const comparisonTargets: string[] = [];
 
     binarySearch({
-      list: sortedCharactors,
+      array: sortedCharactors,
       target: "x",
       compare: (a, b) => a.charCodeAt(0) - b.charCodeAt(0),
-      onComparison: comparison => comparisons.push(comparison)
+      onComparison: comparison => comparisonTargets.push(comparison.value)
     });
 
-    expect({
-      from: sortedCharactors,
-      target: "x",
-      comparisons
-    }).toMatchSnapshot();
+    expect(comparisonTargets).toEqual(["m", "t", "w", "y"]);
   });
 });

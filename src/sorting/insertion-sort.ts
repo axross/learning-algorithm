@@ -1,45 +1,65 @@
-import { SortComparison, SortInsertion } from "./event";
+import { SortComparison, SortInsertion, SortSwap } from "./event";
 
-function insertionSort<Element>({
-  collection,
+function insertionSort<Value>({
+  array,
   compare,
   onComparison = () => {},
+  onSwap = () => {},
   onInsertion = () => {}
 }: {
-  collection: Element[];
-  compare: (a: Element, b: Element) => number;
-  onComparison?: (step: SortComparison<Element>) => void;
-  onInsertion?: (step: SortInsertion<Element>) => void;
+  array: Value[];
+  compare: (a: Value, b: Value) => number;
+  onComparison?: (step: SortComparison<Value>) => void;
+  onSwap?: (swap: SortSwap<Value>) => void;
+  onInsertion?: (step: SortInsertion<Value>) => void;
 }): void {
-  for (let i = 1; i < collection.length; ++i) {
-    let insertBefore = i;
+  for (let i = 1; i < array.length; ++i) {
+    let pickedValue = array[i];
+    let lastComparedIndex: number | null = null;
+    let lastComparedValue: Value | null = null;
 
-    for (let j = 0; j < i; ++j) {
+    for (
+      let compareWith = i - 1, picked = i;
+      compareWith >= 0;
+      --compareWith, --picked
+    ) {
       onComparison({
-        a: { index: i, value: collection[i] },
-        b: { index: j, value: collection[j] }
+        a: { index: picked, value: array[picked] },
+        b: { index: compareWith, value: array[compareWith] }
       });
 
-      if (compare(collection[i], collection[j]) < 0 && j < insertBefore) {
-        insertBefore = j;
+      if (compare(array[picked], array[compareWith]) < 0) {
+        const compareWithValue = array[compareWith];
+        const pickedValue = array[picked];
+
+        [array[compareWith], array[picked]] = [pickedValue, compareWithValue];
+
+        onSwap({
+          a: { index: compareWith, value: compareWithValue },
+          b: { index: picked, value: pickedValue }
+        });
+
+        lastComparedIndex = compareWith;
+        lastComparedValue = compareWithValue;
       }
     }
 
-    if (i === insertBefore) {
-      continue;
+    if (lastComparedIndex !== null && lastComparedValue !== null) {
+      onInsertion({
+        oldIndex: i,
+        value: pickedValue,
+        insertedBefore: {
+          index: lastComparedIndex,
+          value: lastComparedValue
+        }
+      });
     }
-
-    const iValue = collection[i];
-    const bValue = collection[insertBefore];
-
-    collection.splice(i, 1);
-    collection.splice(insertBefore, 0, iValue);
-
-    onInsertion({
-      chosen: { index: i, value: iValue },
-      before: { index: insertBefore, value: bValue }
-    });
   }
 }
 
 export default insertionSort;
+
+insertionSort({
+  array: ["a", "f", "h", "b", "d", "g", "e", "c"],
+  compare: (a, b) => a.charCodeAt(0) - b.charCodeAt(0)
+});
