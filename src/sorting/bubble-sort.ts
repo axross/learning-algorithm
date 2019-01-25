@@ -1,4 +1,5 @@
-import { SortComparison, SortSwap } from "./event";
+import { OnSwap, SortComparison } from "./event";
+import { swap } from "./utility";
 
 function bubbleSort<Value>({
   array,
@@ -9,7 +10,7 @@ function bubbleSort<Value>({
   array: Value[];
   compare: (a: Value, b: Value) => number;
   onComparison?: (step: SortComparison<Value>) => void;
-  onSwap?: (step: SortSwap<Value>) => void;
+  onSwap?: OnSwap<Value>;
 }): void {
   for (let i = 0; i < array.length; ++i) {
     let isSwapped = false;
@@ -23,15 +24,7 @@ function bubbleSort<Value>({
       });
 
       if (shouldABeforeB) {
-        const aValue = array[a];
-        const bValue = array[b];
-
-        [array[a], array[b]] = [bValue, aValue];
-
-        onSwap({
-          a: { index: a, value: aValue },
-          b: { index: b, value: bValue }
-        });
+        swap(array, a, b, onSwap);
 
         isSwapped = true;
       }

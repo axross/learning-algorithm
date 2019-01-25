@@ -9,14 +9,7 @@ export interface SortComparison<Element> {
   };
 }
 
-export interface SortInsertion<Element> {
-  oldIndex: number;
-  value: Element;
-  insertedBefore: {
-    index: number;
-    value: Element;
-  };
-}
+export type OnSwap<Value> = (swap: SortSwap<Value>) => void;
 
 export interface SortSwap<Element> {
   a: {

@@ -1,4 +1,5 @@
-import { SortComparison, SortSwap } from "./event";
+import { OnSwap, SortComparison } from "./event";
+import { swap } from "./utility";
 
 function cocktailShakerSort<Value>({
   array,
@@ -9,7 +10,7 @@ function cocktailShakerSort<Value>({
   array: Value[];
   compare: (a: Value, b: Value) => number;
   onComparison?: (step: SortComparison<Value>) => void;
-  onSwap?: (step: SortSwap<Value>) => void;
+  onSwap?: OnSwap<Value>;
 }): void {
   let i = 0;
   let maxScanTimes = array.length * 2;
@@ -34,25 +35,17 @@ function cocktailShakerSort<Value>({
       });
 
       if (shouldABeforeB) {
-        const aValue = array[a];
-        const bValue = array[b];
-
-        [array[a], array[b]] = [bValue, aValue];
-
-        onSwap({
-          a: { index: a, value: aValue },
-          b: { index: b, value: bValue }
-        });
+        swap(array, a, b, onSwap);
 
         isSwapped = true;
       }
 
       if (isAscendingScan) {
-        ++a;
-        ++b;
+        a = a + 1;
+        b = b + 1;
       } else {
-        --a;
-        --b;
+        a = a - 1;
+        b = b - 1;
       }
     }
 
@@ -60,7 +53,7 @@ function cocktailShakerSort<Value>({
       break;
     }
 
-    ++i;
+    i = i + 1;
   }
 }
 

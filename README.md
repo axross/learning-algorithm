@@ -1,7 +1,7 @@
 # Example implementations to learn algorithms
 
-- 🧹 Simple (readable) implementation
-- 👾 No micro optimization
+- 🧹 Simple and readable implementation
+- 👾 Readability above micro optimization for performance
 - ⛑ Well tested
 - 🕵️‍♀️ Event-trackable
 

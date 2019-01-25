@@ -1,4 +1,5 @@
-import { SortComparison, SortSwap } from "./event";
+import { OnSwap, SortComparison } from "./event";
+import { swap } from "./utility";
 
 function shellSort<Value>({
   array,
@@ -11,7 +12,7 @@ function shellSort<Value>({
   compare: (a: Value, b: Value) => number;
   padding?: number;
   onComparison?: (step: SortComparison<Value>) => void;
-  onSwap?: (step: SortSwap<Value>) => void;
+  onSwap?: OnSwap<Value>;
 }): void {
   while (padding >= 1) {
     let remainder = 0;
@@ -30,18 +31,7 @@ function shellSort<Value>({
           });
 
           if (compare(array[picked], array[compareWith]) < 0) {
-            const compareWithValue = array[compareWith];
-            const pickedValue = array[picked];
-
-            [array[compareWith], array[picked]] = [
-              pickedValue,
-              compareWithValue
-            ];
-
-            onSwap({
-              a: { index: compareWith, value: compareWithValue },
-              b: { index: picked, value: pickedValue }
-            });
+            swap(array, compareWith, picked, onSwap);
           }
 
           compareWith = compareWith - padding;

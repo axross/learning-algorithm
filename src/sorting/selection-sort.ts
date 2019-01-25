@@ -1,4 +1,5 @@
-import { SortComparison, SortSwap } from "./event";
+import { OnSwap, SortComparison } from "./event";
+import { swap } from "./utility";
 
 function selectionSort<Value>({
   array,
@@ -9,7 +10,7 @@ function selectionSort<Value>({
   array: Value[];
   compare: (a: Value, b: Value) => number;
   onComparison?: (step: SortComparison<Value>) => void;
-  onSwap?: (step: SortSwap<Value>) => void;
+  onSwap?: OnSwap<Value>;
 }): void {
   for (let i = 0; i < array.length - 1; ++i) {
     let minimumValueIndex = i;
@@ -35,21 +36,7 @@ function selectionSort<Value>({
       continue;
     }
 
-    const aValue = array[i];
-    const bValue = array[minimumValueIndex];
-
-    [array[i], array[minimumValueIndex]] = [bValue, aValue];
-
-    onSwap({
-      a: {
-        index: i,
-        value: array[i]
-      },
-      b: {
-        index: minimumValueIndex,
-        value: array[minimumValueIndex]
-      }
-    });
+    swap(array, i, minimumValueIndex, onSwap);
   }
 }
 
