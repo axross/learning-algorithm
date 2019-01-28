@@ -1,5 +1,8 @@
 {
   "scripts": {
+    "lint": "prettier --list-different ./src/**/*.ts ./src/**/*.tsx",
+    "format": "prettier --write ./src/**/*.ts ./src/**/*.tsx",
+    "check": "tsc --noEmit --pretty",
     "test": "jest",
     "test-watch": "jest --watch --notify"
   },
