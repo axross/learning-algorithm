@@ -1,5 +1,7 @@
 # Example implementations to learn algorithms
 
+[![CircleCI](https://circleci.com/gh/axross/learning-algorithm.svg?style=svg)](https://circleci.com/gh/axross/learning-algorithm)
+
 - 🧹 Simple and readable implementation
 - 👾 Readability above micro optimization for performance
 - ⛑ Well tested
