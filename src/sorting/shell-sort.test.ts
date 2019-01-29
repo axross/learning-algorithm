@@ -9,7 +9,7 @@ describe("shellSort({ array, compare, onComparison, onSwap })", () => {
 
       shellSort({
         array,
-        padding: randomInteger(2, array.length - 1),
+        padding: randomInteger(2, array.length - 2),
         compare: (a, b) => a.charCodeAt(0) - b.charCodeAt(0)
       });
 

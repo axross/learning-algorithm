@@ -6,7 +6,7 @@ export const charactors = ["a", "b", "c", "d", "e", "f", "g", "h"];
 export const samples = roundRobin(charactors).slice(1);
 
 export function getRandomSample() {
-  return samples[randomInteger(0, samples.length)];
+  return samples[randomInteger(0, samples.length - 1)];
 }
 
 export const staticSample = ["f", "a", "h", "b", "d", "g", "e", "c"];
@@ -25,7 +25,7 @@ export const charactorPairSamples = roundRobin(["a0", "b0", "c0", "d0"]).reduce(
 );
 
 export const randomCharactorPairSample =
-  charactorPairSamples[randomInteger(0, charactorPairSamples.length)];
+  charactorPairSamples[randomInteger(0, charactorPairSamples.length - 1)];
 
 export const staticCharactorPairSample =
   randomCharactorPairSample[Math.floor((samples.length / 7) * 5)];
