@@ -2,10 +2,10 @@
 
 [![CircleCI](https://circleci.com/gh/axross/learning-algorithm.svg?style=svg)](https://circleci.com/gh/axross/learning-algorithm)
 
-- 🧹 Simple and readable implementation
-- 👾 Readability above micro optimization for performance
-- ⛑ Well tested
+- 🧹 Simple, elegant and readable
 - 🕵️‍♀️ Event-trackable
+- ⛑ Well tested
+- 👾 No micro optimization
 
 ## Implementations
 
