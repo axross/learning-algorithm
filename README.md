@@ -53,7 +53,7 @@
 ### Other
 
 - [ ] Euclidean algorithm ([Wikipedia](https://en.wikipedia.org/wiki/Euclidean_algorithm))
-- [ ] Sieve of Eratosthenes ([Wikipedia](https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes))
+- [x] [Sieve of Eratosthenes](src/other/sieve-of-eratosthenes.ts) ([Wikipedia](https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes))
 
 ## Contributing
 
