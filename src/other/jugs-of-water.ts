@@ -5,7 +5,7 @@ function solveJugsOfWater({
   jugCapacities: number[];
   targetQuantity: number;
 }) {
-  const jugs = jugCapacities.map(capacity => new Jug(capacity));
+  const jugs: Jug[] = jugCapacities.map(capacity => ({ capacity }));
   const queue = new Queue();
   const found = [];
 
@@ -163,30 +163,20 @@ class State {
   }
 }
 
-class Jug {
-  constructor(capacity: number) {
-    this.capacity = capacity;
-  }
-
+export interface Jug {
   readonly capacity: number;
 }
 
-type Manipulation = {
-  type: ManipulationType;
-  hero: Jug;
-  opponent?: Jug;
-};
+export interface Manipulation {
+  readonly type: ManipulationType;
+  readonly hero: Jug;
+  readonly opponent?: Jug;
+}
 
-enum ManipulationType {
+export enum ManipulationType {
   fillUp,
   dumpOut,
   transfer
 }
 
-console.dir(
-  solveJugsOfWater({
-    jugCapacities: [5, 3],
-    targetQuantity: 4
-  }),
-  { depth: 5 }
-);
+export default solveJugsOfWater;
