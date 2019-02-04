@@ -50,14 +50,14 @@
 
 ### Path detection
 
+### Puzzles
+
+- [x] [Water pouring](src/puzzle/water-pouring.ts) ([Wikipedia](https://en.wikipedia.org/wiki/Water_pouring_puzzle))
+
 ### Other
 
 - [ ] Euclidean algorithm ([Wikipedia](https://en.wikipedia.org/wiki/Euclidean_algorithm))
 - [x] [Sieve of Eratosthenes](src/other/sieve-of-eratosthenes.ts) ([Wikipedia](https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes))
-
-### Puzzles
-
-- [x] [Water pouring](src/other/water-pouring.ts) ([Wikipedia](https://en.wikipedia.org/wiki/Water_pouring_puzzle))
 
 ## Contributing
 
