@@ -1,4 +1,4 @@
-function solveJugsOfWater({
+function solveWaterPouring({
   jugCapacities,
   targetQuantity
 }: {
@@ -179,4 +179,4 @@ export enum ManipulationType {
   transfer
 }
 
-export default solveJugsOfWater;
+export default solveWaterPouring;
