@@ -50,6 +50,10 @@
 
 ### Path detection
 
+### Puzzles
+
+- [x] [Water pouring](src/puzzle/water-pouring.ts) ([Wikipedia](https://en.wikipedia.org/wiki/Water_pouring_puzzle))
+
 ### Other
 
 - [ ] Euclidean algorithm ([Wikipedia](https://en.wikipedia.org/wiki/Euclidean_algorithm))
