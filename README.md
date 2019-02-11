@@ -37,7 +37,7 @@
   - [ ] Binary tree sort ([Wikipedia](https://en.wikipedia.org/wiki/Tree_sort))
   - [ ] Library sort ([Wikipedia](https://en.wikipedia.org/wiki/Library_sort))
 - Other
-  - [ ] Merge sort ([Wikipedia](https://en.wikipedia.org/wiki/Library_sort))
+  - [x] [Merge sort](src/sorting/merge-sort.ts) ([Wikipedia](https://en.wikipedia.org/wiki/Library_sort))
   - [ ] Quick sort ([Wikipedia](https://en.wikipedia.org/wiki/Quicksort))
 
 ### Lossless compression
