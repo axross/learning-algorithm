@@ -1,3 +1,4 @@
+import Compare from "../compare";
 import { OnSwap, SortComparison } from "./event";
 import { swap } from "./utility";
 
@@ -9,7 +10,7 @@ function shellSort<Value>({
   onSwap = () => {}
 }: {
   array: Value[];
-  compare: (a: Value, b: Value) => number;
+  compare: Compare<Value>;
   padding?: number;
   onComparison?: (step: SortComparison<Value>) => void;
   onSwap?: OnSwap<Value>;

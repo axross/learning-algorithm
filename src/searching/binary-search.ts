@@ -1,3 +1,4 @@
+import Compare from "../compare";
 import { SearchComparison } from "./event";
 
 function binarySearch<Value>({
@@ -8,7 +9,7 @@ function binarySearch<Value>({
 }: {
   array: Value[];
   target: Value;
-  compare: (a: Value, b: Value) => number;
+  compare: Compare<Value>;
   onComparison?: (step: SearchComparison<Value>) => void;
 }): number {
   let searchRange = new Range(0, array.length - 1);
