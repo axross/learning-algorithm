@@ -1,30 +1,49 @@
-import binarySearch from "./binary-search";
-import { sortedCharactors } from "./sample";
+import { assert, test } from "https://deno.land/x/testing/mod.ts";
+import binarySearch from "./binary-search.ts";
+import { sortedCharactors } from "./sample.ts";
 
-describe("binarySearch", () => {
-  test(`binarySearch(target: "x") finds the index of the target to be ${sortedCharactors.indexOf(
+test({
+  name: `binarySearch(target: "x") finds the index of the target to be ${sortedCharactors.indexOf(
     "x"
-  )}`, () => {
-    expect(
+  )}`,
+  fn() {
+    assert.equal(
       binarySearch({
         array: sortedCharactors,
         target: "x",
         compare: (a, b) => a.charCodeAt(0) - b.charCodeAt(0)
-      })
-    ).toBe(sortedCharactors.indexOf("x"));
-  });
+      }),
+      sortedCharactors.indexOf("x")
+    );
+  }
+});
 
-  test("binarySearch(target: 25000) doesn't find it", () => {
-    expect(
+test({
+  name: "binarySearch(target: 25000) doesn't find it",
+  fn() {
+    assert.equal(
       binarySearch({
         array: sortedCharactors,
         target: "🍣",
         compare: (a, b) => a.charCodeAt(0) - b.charCodeAt(0)
-      })
-    ).toBe(-1);
-  });
+      }),
+      -1
+    );
+  }
+});
 
-  test('binarySearch(target: "x") finds the target in the correct process', () => {
+test({
+  name: 'binarySearch(target: "x") finds the target in the correct process',
+  fn() {
+    assert.equal(
+      binarySearch({
+        array: sortedCharactors,
+        target: "🍣",
+        compare: (a, b) => a.charCodeAt(0) - b.charCodeAt(0)
+      }),
+      -1
+    );
+
     const comparisonTargets: string[] = [];
 
     binarySearch({
@@ -34,6 +53,6 @@ describe("binarySearch", () => {
       onComparison: comparison => comparisonTargets.push(comparison.value)
     });
 
-    expect(comparisonTargets).toEqual(["m", "t", "w", "y"]);
-  });
+    assert.equal(comparisonTargets, ["m", "t", "w", "y"]);
+  }
 });
