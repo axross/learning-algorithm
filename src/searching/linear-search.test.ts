@@ -1,28 +1,38 @@
-import linearSearch from "./linear-search";
-import { unsortedCharactors } from "./sample";
+import { assert, test } from "https://deno.land/x/testing/mod.ts";
+import linearSearch from "./linear-search.ts";
+import { unsortedCharactors } from "./sample.ts";
 
-describe("linearSearch", () => {
-  test(`linearSearch(target: "x") finds the index of the target to be ${unsortedCharactors.indexOf(
+test({
+  name: `linearSearch(target: "x") finds the index of the target to be ${unsortedCharactors.indexOf(
     "x"
-  )}`, () => {
-    expect(
+  )}`,
+  fn() {
+    assert.equal(
       linearSearch({
         array: unsortedCharactors,
         target: "x"
-      })
-    ).toBe(unsortedCharactors.indexOf("x"));
-  });
+      }),
+      unsortedCharactors.indexOf("x")
+    );
+  }
+});
 
-  test("linearSearch(target: 25000) doesn't find it", () => {
-    expect(
+test({
+  name: "linearSearch(target: 25000) doesn't find it",
+  fn() {
+    assert.equal(
       linearSearch({
         array: unsortedCharactors,
         target: "🍣"
-      })
-    ).toBe(-1);
-  });
+      }),
+      -1
+    );
+  }
+});
 
-  test('linearSearch(target: "x") finds the target in the correct process', () => {
+test({
+  name: 'linearSearch(target: "x") finds the target in the correct process',
+  fn() {
     const comparisonTargets: string[] = [];
 
     linearSearch({
@@ -31,7 +41,7 @@ describe("linearSearch", () => {
       onComparison: comparison => comparisonTargets.push(comparison.value)
     });
 
-    expect(comparisonTargets).toEqual([
+    assert.equal(comparisonTargets, [
       "c",
       "n",
       "r",
@@ -50,5 +60,5 @@ describe("linearSearch", () => {
       "g",
       "x"
     ]);
-  });
+  }
 });
