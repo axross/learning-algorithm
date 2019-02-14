@@ -1,6 +1,6 @@
+import { test, assert } from "https://deno.land/x/testing/mod.ts";
 import bubbleSort from "./bubble-sort.ts";
 import { charactors, getRandomSample, staticSample } from "./sample.ts";
-import { test, assert } from "https://deno.land/x/testing/mod.ts";
 
 test({
   name: "bubbleSort() sorts any array to be ordered",
