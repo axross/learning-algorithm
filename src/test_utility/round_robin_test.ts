@@ -1,8 +1,10 @@
-import roundRobin from "./round-robin";
+import { assert, test } from "https://deno.land/x/testing/mod.ts";
+import roundRobin from "./round_robin.ts";
 
-describe('roundRobin(["a", "b", "c", "d"])', () => {
-  test("returns a round-robin list of given charactors", () => {
-    expect(roundRobin(["a", "b", "c", "d"])).toEqual([
+test({
+  name: "roundRobin() returns a round-robin list of given charactors",
+  fn() {
+    assert.equal(roundRobin(["a", "b", "c", "d"]), [
       ["a", "b", "c", "d"],
       ["a", "b", "d", "c"],
       ["a", "c", "b", "d"],
@@ -28,5 +30,5 @@ describe('roundRobin(["a", "b", "c", "d"])', () => {
       ["d", "c", "a", "b"],
       ["d", "c", "b", "a"]
     ]);
-  });
+  }
 });
