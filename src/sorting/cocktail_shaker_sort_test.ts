@@ -1,8 +1,10 @@
-import cocktailShakerSort from "./cocktail-shaker-sort";
-import { charactors, getRandomSample, staticSample } from "./sample";
+import { assert, test } from "https://deno.land/x/testing/mod.ts";
+import cocktailShakerSort from "./cocktail_shaker_sort.ts";
+import { charactors, getRandomSample, staticSample } from "./sample.ts";
 
-describe("cocktailShakerSort({ array, compare, onComparison, onSwap })", () => {
-  test(`sorts any array to be ordered`, () => {
+test({
+  name: "cocktailShakerSort() sorts any array to be ordered",
+  fn() {
     for (let i = 1; i <= 100; ++i) {
       const array = [...getRandomSample()];
 
@@ -11,11 +13,14 @@ describe("cocktailShakerSort({ array, compare, onComparison, onSwap })", () => {
         compare: (a, b) => a.charCodeAt(0) - b.charCodeAt(0)
       });
 
-      expect(array).toEqual(charactors);
+      assert.equal(array, charactors);
     }
-  });
+  }
+});
 
-  test("sorts an array in the correct process", () => {
+test({
+  name: "cocktailShakerSort() sorts an array in the correct process",
+  fn() {
     const changesOnSwap: string[][] = [];
     const array = [...staticSample];
 
@@ -25,7 +30,7 @@ describe("cocktailShakerSort({ array, compare, onComparison, onSwap })", () => {
       onSwap: () => changesOnSwap.push([...array])
     });
 
-    expect(changesOnSwap).toEqual([
+    assert.equal(changesOnSwap, [
       ["a", "f", "h", "b", "d", "g", "e", "c"],
       ["a", "f", "b", "h", "d", "g", "e", "c"],
       ["a", "f", "b", "d", "h", "g", "e", "c"],
@@ -41,5 +46,5 @@ describe("cocktailShakerSort({ array, compare, onComparison, onSwap })", () => {
       ["a", "b", "c", "d", "f", "e", "g", "h"],
       ["a", "b", "c", "d", "e", "f", "g", "h"]
     ]);
-  });
+  }
 });

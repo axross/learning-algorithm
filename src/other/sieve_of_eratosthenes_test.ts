@@ -1,8 +1,11 @@
-import sieveOfEratosthenes from "./sieve-of-eratosthenes";
+import { assert, test } from "https://deno.land/x/testing/mod.ts";
+import sieveOfEratosthenes from "./sieve_of_eratosthenes.ts";
 
-describe("sieveOfEratosthenes({ lessThanOrEqual, onSieving })", () => {
-  test(`returns prime numbers less than equal lessThanEqual`, () => {
-    expect(sieveOfEratosthenes({ lessThanOrEqual: 100 })).toEqual([
+test({
+  name:
+    "sieveOfEratosthenes() returns prime numbers less than equal lessThanOrEqual",
+  fn() {
+    assert.equal(sieveOfEratosthenes({ lessThanOrEqual: 100 }), [
       2,
       3,
       5,
@@ -29,9 +32,12 @@ describe("sieveOfEratosthenes({ lessThanOrEqual, onSieving })", () => {
       89,
       97
     ]);
-  });
+  }
+});
 
-  test("sieves numbers in the correct process", () => {
+test({
+  name: "sieveOfEratosthenes() sieves numbers in the correct process",
+  fn() {
     const valuesSieved: number[] = [];
 
     sieveOfEratosthenes({
@@ -39,7 +45,7 @@ describe("sieveOfEratosthenes({ lessThanOrEqual, onSieving })", () => {
       onSieving: ({ value }) => valuesSieved.push(value)
     });
 
-    expect(valuesSieved).toEqual([
+    assert.equal(valuesSieved, [
       4,
       6,
       8,
@@ -115,5 +121,5 @@ describe("sieveOfEratosthenes({ lessThanOrEqual, onSieving })", () => {
       77,
       91
     ]);
-  });
+  }
 });

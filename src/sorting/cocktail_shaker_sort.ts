@@ -1,6 +1,6 @@
-import Compare from "../compare";
-import { OnSwap, SortComparison } from "./event";
-import { swap } from "./utility";
+import Compare from "../compare.ts";
+import { OnSwap, SortComparison } from "./event.ts";
+import { swap } from "./utility.ts";
 
 function cocktailShakerSort<Value>({
   array,

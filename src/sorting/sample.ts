@@ -1,5 +1,5 @@
-import roundRobin from "../test-utility/round-robin.ts";
-import randomInteger from "../test-utility/random-integer.ts";
+import roundRobin from "../test_utility/round_robin.ts";
+import randomInteger from "../test_utility/random_integer.ts";
 
 export const charactors = ["a", "b", "c", "d", "e", "f", "g", "h"];
 

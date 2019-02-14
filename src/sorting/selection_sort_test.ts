@@ -1,8 +1,10 @@
-import selectionSort from "./selection-sort";
-import { charactors, getRandomSample, staticSample } from "./sample";
+import { assert, test } from "https://deno.land/x/testing/mod.ts";
+import { charactors, getRandomSample, staticSample } from "./sample.ts";
+import selectionSort from "./selection_sort.ts";
 
-describe("selectionSort({ array, compare, onComparison, onSwap })", () => {
-  test(`sorts any array to be ordered`, () => {
+test({
+  name: "selectionSort() sorts any array to be ordered",
+  fn() {
     for (let i = 1; i <= 100; ++i) {
       const array = [...getRandomSample()];
 
@@ -11,11 +13,14 @@ describe("selectionSort({ array, compare, onComparison, onSwap })", () => {
         compare: (a, b) => a.charCodeAt(0) - b.charCodeAt(0)
       });
 
-      expect(array).toEqual(charactors);
+      assert.equal(array, charactors);
     }
-  });
+  }
+});
 
-  test("sorts an array in the correct process", () => {
+test({
+  name: "selectionSort() sorts an array in the correct process",
+  fn() {
     const changesOnSwap: string[][] = [];
     const array = [...staticSample];
 
@@ -25,7 +30,7 @@ describe("selectionSort({ array, compare, onComparison, onSwap })", () => {
       onSwap: () => changesOnSwap.push([...array])
     });
 
-    expect(changesOnSwap).toEqual([
+    assert.equal(changesOnSwap, [
       ["a", "f", "h", "b", "d", "g", "e", "c"],
       ["a", "b", "h", "f", "d", "g", "e", "c"],
       ["a", "b", "c", "f", "d", "g", "e", "h"],
@@ -33,5 +38,5 @@ describe("selectionSort({ array, compare, onComparison, onSwap })", () => {
       ["a", "b", "c", "d", "e", "g", "f", "h"],
       ["a", "b", "c", "d", "e", "f", "g", "h"]
     ]);
-  });
+  }
 });

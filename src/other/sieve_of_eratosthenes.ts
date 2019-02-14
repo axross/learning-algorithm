@@ -1,4 +1,4 @@
-import { OnSieving } from "./event";
+import { OnSieving } from "./event.ts";
 
 function sieveOfEratosthenes({
   lessThanOrEqual,

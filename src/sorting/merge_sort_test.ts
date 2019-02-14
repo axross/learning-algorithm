@@ -1,8 +1,10 @@
-import mergeSort, { isInternalNode, Node } from "./merge-sort";
-import { charactors, getRandomSample, staticSample } from "./sample";
+import { assert, test } from "https://deno.land/x/testing/mod.ts";
+import mergeSort, { isInternalNode, Node } from "./merge_sort.ts";
+import { charactors, getRandomSample, staticSample } from "./sample.ts";
 
-describe("mergeSort({ array, compare, onSplit, onMerge })", () => {
-  test(`sorts any array to be ordered`, () => {
+test({
+  name: "mergeSort() sorts any array to be ordered",
+  fn() {
     for (let i = 1; i <= 100; ++i) {
       const array = [...getRandomSample()];
 
@@ -11,11 +13,14 @@ describe("mergeSort({ array, compare, onSplit, onMerge })", () => {
         compare: (a, b) => a.charCodeAt(0) - b.charCodeAt(0)
       });
 
-      expect(sorted).toEqual(charactors);
+      assert.equal(sorted, charactors);
     }
-  });
+  }
+});
 
-  test("splits and merges arrays in the correct process", () => {
+test({
+  name: "mergeSort() splits and merges arrays in the correct process",
+  fn() {
     let splittedTree: any;
     const treesOnMerge: any[] = [];
     const array = [...staticSample];
@@ -29,12 +34,12 @@ describe("mergeSort({ array, compare, onSplit, onMerge })", () => {
       onMerge: tree => treesOnMerge.push(nodeToArray(tree))
     });
 
-    expect(splittedTree!).toEqual([
+    assert.equal(splittedTree!, [
       [[["f"], ["a"]], [["h"], ["b"]]],
       [[["d"], ["g"]], [["e"], ["c"]]]
     ]);
 
-    expect(treesOnMerge).toEqual([
+    assert.equal(treesOnMerge, [
       [[["a", "f"], [["h"], ["b"]]], [[["d"], ["g"]], [["e"], ["c"]]]],
       [[["a", "f"], ["b", "h"]], [[["d"], ["g"]], [["e"], ["c"]]]],
       [["a", "b", "f", "h"], [[["d"], ["g"]], [["e"], ["c"]]]],
@@ -43,7 +48,7 @@ describe("mergeSort({ array, compare, onSplit, onMerge })", () => {
       [["a", "b", "f", "h"], ["c", "d", "e", "g"]],
       ["a", "b", "c", "d", "e", "f", "g", "h"]
     ]);
-  });
+  }
 });
 
 function nodeToArray<Value>(node: Node<Value>): any[] {
