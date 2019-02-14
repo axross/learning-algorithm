@@ -2,6 +2,7 @@ version: 2
 general_options: &general_options
   docker:
     - image: circleci/node:10.4.0
+    - image: maxmcd/deno
   working_directory: ~/repo
 jobs:
   checkout:
@@ -45,7 +46,7 @@ jobs:
           at: ~/repo
       - run:
           name: Test code
-          command: npm test -- --ci --verbose --coverage
+          command: npm test
 workflows:
   version: 2
   default:
