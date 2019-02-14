@@ -2,6 +2,7 @@
 
 [![CircleCI](https://circleci.com/gh/axross/learning-algorithm.svg?style=svg)](https://circleci.com/gh/axross/learning-algorithm)
 
+- Written in TypeScript with Deno
 - 🧹 Simple, elegant and readable
 - 🕵️‍♀️ Event-trackable
 - ⛑ Well tested
