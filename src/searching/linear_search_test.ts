@@ -1,5 +1,5 @@
 import { assert, test } from "https://deno.land/x/testing/mod.ts";
-import linearSearch from "./linear-search.ts";
+import linearSearch from "./linear_search.ts";
 import { unsortedCharactors } from "./sample.ts";
 
 test({

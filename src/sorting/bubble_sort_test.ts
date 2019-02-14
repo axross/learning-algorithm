@@ -1,5 +1,5 @@
-import { test, assert } from "https://deno.land/x/testing/mod.ts";
-import bubbleSort from "./bubble-sort.ts";
+import { assert, test } from "https://deno.land/x/testing/mod.ts";
+import bubbleSort from "./bubble_sort.ts";
 import { charactors, getRandomSample, staticSample } from "./sample.ts";
 
 test({

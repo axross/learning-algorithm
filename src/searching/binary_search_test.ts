@@ -1,5 +1,5 @@
 import { assert, test } from "https://deno.land/x/testing/mod.ts";
-import binarySearch from "./binary-search.ts";
+import binarySearch from "./binary_search.ts";
 import { sortedCharactors } from "./sample.ts";
 
 test({
