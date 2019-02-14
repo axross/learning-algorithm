@@ -3,7 +3,7 @@
     "lint": "prettier --list-different ./src/**/*.ts",
     "format": "prettier --write ./src/**/*.ts",
     "check": "tsc --noEmit --pretty",
-    "test": "echo 'todo'",
+    "test": "deno ./test.ts",
     "test-watch": "echo 'todo'"
   },
   "author": "Kohei Asai <me@axross.io> (https://axross.io/)",
