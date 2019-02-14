@@ -1,4 +1,4 @@
-import { SearchComparison } from "./event";
+import { SearchComparison } from "./event.ts";
 
 function linearSearch<Value>({
   array,
