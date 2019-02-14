@@ -2,7 +2,7 @@
   "scripts": {
     "lint": "prettier --list-different ./src/**/*.ts",
     "format": "prettier --write ./src/**/*.ts",
-    "check": "echo 'todo'",
+    "check": "tsc --noEmit --pretty",
     "test": "echo 'todo'",
     "test-watch": "echo 'todo'"
   },
