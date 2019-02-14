@@ -1,4 +1,4 @@
-import { OnSwap } from "./event";
+import { OnSwap } from "./event.ts";
 
 export function swap<Value>(
   arr: Value[],
