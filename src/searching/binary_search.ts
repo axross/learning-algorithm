@@ -1,5 +1,5 @@
-import Compare from "../compare";
-import { SearchComparison } from "./event";
+import Compare from "../compare.ts";
+import { SearchComparison } from "./event.ts";
 
 function binarySearch<Value>({
   array,

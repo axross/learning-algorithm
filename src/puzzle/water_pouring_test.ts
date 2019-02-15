@@ -1,7 +1,9 @@
-import solveWaterPouring from "./water-pouring";
+import { assert, equal, test } from "https://deno.land/x/testing/mod.ts";
+import solveWaterPouring from "./water_pouring.ts";
 
-describe("solveWaterPouring({jugCapacities, targetQuantity})", () => {
-  test("returns instructions to make targetQuantity", () => {
+test({
+  name: "solveWaterPouring() returns instructions to make targetQuantity",
+  fn() {
     const problems = [
       {
         jugCapacities: [5, 4],
@@ -24,19 +26,20 @@ describe("solveWaterPouring({jugCapacities, targetQuantity})", () => {
     for (const { jugCapacities, targetQuantity } of problems) {
       const results = solveWaterPouring({ jugCapacities, targetQuantity });
 
-      expect(results.length).toBeGreaterThan(1);
+      assert(results.length > 1);
     }
-  });
+  }
+});
 
-  test("returns instructions not duplicated", () => {
+test({
+  name: "solveWaterPouring() returns instructions not duplicated",
+  fn() {
     const results = solveWaterPouring({
       jugCapacities: [5, 3],
       targetQuantity: 4
     });
 
-    expect(results.length).toBe(2);
-    expect(results[0].manipulationLogs).not.toEqual(
-      results[1].manipulationLogs
-    );
-  });
+    assert.strictEqual(results.length, 2);
+    assert(!equal(results[0].manipulationLogs, results[1].manipulationLogs));
+  }
 });

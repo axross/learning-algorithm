@@ -1,4 +1,4 @@
-import Compare from "../compare";
+import Compare from "../compare.ts";
 
 function mergeSort<Value>({
   array,

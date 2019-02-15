@@ -1,9 +1,11 @@
-import shellSort from "./shell-sort";
-import { charactors, getRandomSample, staticSample } from "./sample";
-import randomInteger from "../test-utility/random-integer";
+import { assert, test } from "https://deno.land/x/testing/mod.ts";
+import randomInteger from "../test_utility/random_integer.ts";
+import { charactors, getRandomSample, staticSample } from "./sample.ts";
+import shellSort from "./shell_sort.ts";
 
-describe("shellSort({ array, compare, onComparison, onSwap })", () => {
-  test(`sorts any array to be ordered`, () => {
+test({
+  name: "shellSort() sorts any array to be ordered",
+  fn() {
     for (let i = 1; i <= 100; ++i) {
       const array = [...getRandomSample()];
 
@@ -13,11 +15,14 @@ describe("shellSort({ array, compare, onComparison, onSwap })", () => {
         compare: (a, b) => a.charCodeAt(0) - b.charCodeAt(0)
       });
 
-      expect(array).toEqual(charactors);
+      assert.equal(array, charactors);
     }
-  });
+  }
+});
 
-  test("sorts an array in the correct process", () => {
+test({
+  name: "shellSort() sorts an array in the correct process",
+  fn() {
     const changesOnSwap: string[][] = [];
     const array = [...staticSample];
 
@@ -28,7 +33,7 @@ describe("shellSort({ array, compare, onComparison, onSwap })", () => {
       onSwap: () => changesOnSwap.push([...array])
     });
 
-    expect(changesOnSwap).toEqual([
+    assert.equal(changesOnSwap, [
       ["b", "a", "h", "f", "d", "g", "e", "c"],
       ["b", "a", "h", "e", "d", "g", "f", "c"],
       ["b", "a", "h", "e", "c", "g", "f", "d"],
@@ -44,5 +49,5 @@ describe("shellSort({ array, compare, onComparison, onSwap })", () => {
       ["a", "b", "c", "e", "d", "f", "g", "h"],
       ["a", "b", "c", "d", "e", "f", "g", "h"]
     ]);
-  });
+  }
 });

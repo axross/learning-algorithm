@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "esnext",
-    "module": "esnext",
+    "module": "commonjs",
     "noEmit": true,
     "strict": true,
     "noImplicitAny": true,
@@ -14,6 +14,13 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    "plugins": [{ "name": "deno_ls_plugin" }],
+    "baseUrl": ".",
+    "paths": {
+      "deno": ["../../.deno/deno.d.ts"],
+      "https://*": ["../../.deno/deps/https/*"],
+      "http://*": ["../../.deno/deps/http/*"]
+    }
   }
 }
